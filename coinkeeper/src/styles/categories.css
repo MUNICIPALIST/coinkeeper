@@ -1,0 +1,1055 @@
+/* Category cards styles */
+.category-card {
+  transition: all 0.3s ease;
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  height: 100%;
+  position: relative;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color-light);
+}
+
+.category-card .MuiCardContent-root {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.category-card .MuiTypography-root {
+  margin-top: 8px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.category-card .MuiCardActions-root {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--card-actions-bg);
+  border-top: 1px solid var(--card-border);
+}
+
+/* Category icon styles */
+.category-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  background: linear-gradient(45deg, var(--primary-color-light), var(--primary-color));
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+  transform: scale(1.1);
+}
+
+/* Action buttons */
+.category-card .MuiButton-root {
+  min-width: auto;
+  padding: 6px;
+  margin: 0 4px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.category-card .MuiButton-root:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Income category specific */
+.income-category .category-icon {
+  background: linear-gradient(45deg, var(--income-color-light), var(--income-color));
+}
+
+.income-category:hover {
+  border-color: var(--income-color-light);
+}
+
+/* Expense category specific */
+.expense-category .category-icon {
+  background: linear-gradient(45deg, var(--expense-color-light), var(--expense-color));
+}
+
+.expense-category:hover {
+  border-color: var(--expense-color-light);
+}
+
+/* Category grid layout */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+/* Category header */
+.categories-header {
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--divider-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.categories-header .MuiTypography-h5 {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Add category button */
+.add-category-button {
+  background: linear-gradient(45deg, var(--primary-color-light), var(--primary-color));
+  color: white;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  text-transform: none;
+  font-weight: 500;
+}
+
+.add-category-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Category dialog */
+.category-dialog .MuiDialogTitle-root {
+  background: var(--dialog-header-bg);
+  color: var(--text-primary);
+}
+
+.category-dialog .MuiDialogContent-root {
+  padding: 24px;
+  background: var(--dialog-bg);
+}
+
+.category-dialog .MuiDialogActions-root {
+  padding: 16px 24px;
+  background: var(--dialog-actions-bg);
+  border-top: 1px solid var(--divider-color);
+}
+
+/* Selected icon highlight */
+.category-icon-selector .selected {
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color-light);
+}
+
+/* Category page styles */
+
+/* Category grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 16px;
+}
+
+/* Category card styles */
+.category-card {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Light theme category card styling */
+[data-theme="light"] .category-card {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: rgba(46, 123, 255, 0.3);
+}
+
+/* Dark theme category card styling */
+[data-theme="dark"] .category-card {
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(94, 156, 255, 0.3);
+}
+
+/* Category card content */
+.category-card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.category-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+  background-color: rgba(46, 123, 255, 0.1);
+  border-radius: 50%;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .category-icon {
+  box-shadow: 0 4px 12px rgba(46, 123, 255, 0.15);
+}
+
+[data-theme="dark"] .category-icon {
+  box-shadow: 0 4px 12px rgba(94, 156, 255, 0.2);
+}
+
+.category-card:hover .category-icon {
+  transform: scale(1.1);
+  color: var(--primary-color-light);
+}
+
+.category-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.category-type {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+/* Income category */
+.income-category .category-icon {
+  color: var(--success-color);
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+[data-theme="light"] .income-category .category-icon {
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.15);
+}
+
+[data-theme="dark"] .income-category .category-icon {
+  box-shadow: 0 4px 12px rgba(72, 199, 101, 0.2);
+}
+
+.income-category:hover .category-icon {
+  color: var(--success-color-light);
+}
+
+/* Expense category */
+.expense-category .category-icon {
+  color: var(--danger-color);
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+[data-theme="light"] .expense-category .category-icon {
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.15);
+}
+
+[data-theme="dark"] .expense-category .category-icon {
+  box-shadow: 0 4px 12px rgba(239, 91, 106, 0.2);
+}
+
+.expense-category:hover .category-icon {
+  color: var(--danger-color-light);
+}
+
+/* Category actions */
+.category-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.category-action-button {
+  border-radius: 8px;
+  padding: 8px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.category-action-button:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--primary-color);
+  border-color: var(--card-border);
+}
+
+/* Edit button */
+.edit-button:hover {
+  color: var(--primary-color);
+}
+
+/* Delete button */
+.delete-button:hover {
+  color: var(--danger-color);
+}
+
+/* Category Dialog */
+.category-dialog .MuiDialog-paper {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+}
+
+.category-dialog-title {
+  padding: 16px 24px;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.category-dialog-content {
+  padding: 24px;
+}
+
+.category-dialog-actions {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid var(--divider-color);
+}
+
+/* Icon grid for dialog */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .icon-button {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+[data-theme="dark"] .icon-button {
+  background-color: #252525;
+  border: 1px solid #2d2d2d;
+}
+
+.icon-button:hover {
+  background-color: rgba(46, 123, 255, 0.1);
+  border-color: var(--primary-color);
+}
+
+.icon-button.selected {
+  background-color: rgba(46, 123, 255, 0.2);
+  border-color: var(--primary-color);
+}
+
+.icon-button .icon {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.icon-button:hover .icon,
+.icon-button.selected .icon {
+  color: var(--primary-color);
+}
+
+/* Add category card */
+.add-category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  border: 2px dashed var(--card-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .add-category-card {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .add-category-card {
+  background-color: rgba(30, 30, 30, 0.7);
+}
+
+.add-category-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.add-category-card .add-icon {
+  font-size: 2.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+}
+
+.add-category-card:hover .add-icon {
+  color: var(--primary-color);
+}
+
+.add-text {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.add-category-card:hover .add-text {
+  color: var(--primary-color);
+}
+
+/* Loading state for category grid */
+.loading-skeleton {
+  background: linear-gradient(90deg, 
+    var(--card-border) 0%, 
+    var(--bg-secondary) 50%, 
+    var(--card-border) 100%);
+  background-size: 200% 100%;
+  animation: loading-wave 1.5s infinite;
+  border-radius: 12px;
+  height: 150px;
+}
+
+@keyframes loading-wave {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Category filter tabs */
+.category-filter-tabs {
+  margin-bottom: 16px;
+}
+
+.category-filter-tabs .MuiTabs-indicator {
+  background-color: var(--primary-color);
+}
+
+.category-filter-tab {
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  text-transform: none;
+  font-weight: 500;
+}
+
+.category-filter-tab.Mui-selected {
+  opacity: 1;
+  color: var(--primary-color);
+}
+
+/* Empty state */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0;
+  text-align: center;
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+.empty-state-text {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.add-first-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.add-first-button:hover {
+  background-color: var(--primary-color-light);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 123, 255, 0.2);
+}
+
+/* Categories page styling */
+
+/* Category grid layout */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .categories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+  }
+}
+
+/* Category card */
+.category-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid var(--card-border);
+}
+
+[data-theme="light"] .category-card {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .category-card {
+  background: linear-gradient(145deg, #1e1e1e, #222222);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+[data-theme="light"] .category-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .category-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Income category */
+.category-card.income {
+  border-left: 3px solid var(--success-color);
+}
+
+[data-theme="light"] .category-card.income:hover {
+  background: linear-gradient(145deg, #f0fff4, #e6ffea);
+}
+
+[data-theme="dark"] .category-card.income:hover {
+  background: linear-gradient(145deg, #1a2e22, #1f3329);
+}
+
+/* Expense category */
+.category-card.expense {
+  border-left: 3px solid var(--danger-color);
+}
+
+[data-theme="light"] .category-card.expense:hover {
+  background: linear-gradient(145deg, #fff5f5, #ffe6e6);
+}
+
+[data-theme="dark"] .category-card.expense:hover {
+  background: linear-gradient(145deg, #2e1a1a, #331f1f);
+}
+
+/* Category icon */
+.category-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .category-icon-wrapper {
+  background: linear-gradient(135deg, #f0f0f0, #ffffff);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .category-icon-wrapper {
+  background: linear-gradient(135deg, #252525, #2c2c2c);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-card:hover .category-icon-wrapper {
+  transform: scale(1.1);
+}
+
+.category-icon {
+  font-size: 28px;
+  color: var(--text-primary);
+}
+
+.category-card.income .category-icon {
+  color: var(--success-color);
+}
+
+.category-card.expense .category-icon {
+  color: var(--danger-color);
+}
+
+/* Category name */
+.category-name {
+  font-weight: 500;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-top: 8px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.category-card:hover .category-name {
+  color: var(--primary-color);
+}
+
+/* Add category card */
+.add-category-card {
+  border-style: dashed;
+  background: transparent;
+  border-width: 2px;
+  border-color: var(--divider-color);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.add-category-card:hover {
+  opacity: 1;
+  border-color: var(--primary-color);
+}
+
+[data-theme="light"] .add-category-card:hover {
+  background: rgba(46, 123, 255, 0.03);
+}
+
+[data-theme="dark"] .add-category-card:hover {
+  background: rgba(94, 156, 255, 0.05);
+}
+
+.add-category-icon {
+  font-size: 32px;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.add-category-card:hover .add-category-icon {
+  transform: rotate(90deg);
+}
+
+.add-category-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Category actions */
+.category-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  gap: 4px;
+}
+
+.category-card:hover .category-actions {
+  opacity: 1;
+}
+
+.category-action-button {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.category-action-button:hover {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.category-action-button.edit:hover {
+  background-color: var(--info-color);
+  color: white;
+}
+
+.category-action-button.delete:hover {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* Category filters */
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.category-filter-button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid var(--divider-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.category-filter-button:hover {
+  transform: translateY(-2px);
+  background-color: var(--button-hover-bg);
+  color: var(--text-primary);
+}
+
+.category-filter-button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.category-filter-button.income {
+  border-color: var(--success-color);
+  color: var(--success-color);
+}
+
+.category-filter-button.income:hover {
+  background-color: rgba(0, 200, 83, 0.08);
+}
+
+.category-filter-button.income.active {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.category-filter-button.expense {
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+}
+
+.category-filter-button.expense:hover {
+  background-color: rgba(255, 59, 48, 0.08);
+}
+
+.category-filter-button.expense.active {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* Category dialog */
+.category-dialog .MuiDialog-paper {
+  border-radius: 16px;
+  padding: 24px;
+  background-color: var(--bg-primary);
+}
+
+.category-dialog-title {
+  margin: 0 0 24px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.category-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.category-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.category-type-selector {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.category-type-option {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid var(--divider-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-type-option:hover {
+  border-color: var(--primary-color);
+  background-color: var(--button-hover-bg);
+}
+
+.category-type-option.selected {
+  border-color: var(--primary-color);
+  background-color: rgba(46, 123, 255, 0.05);
+}
+
+.category-type-option.income.selected {
+  border-color: var(--success-color);
+  background-color: rgba(0, 200, 83, 0.05);
+}
+
+.category-type-option.expense.selected {
+  border-color: var(--danger-color);
+  background-color: rgba(255, 59, 48, 0.05);
+}
+
+.category-type-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.category-type-option.income .category-type-icon {
+  color: var(--success-color);
+}
+
+.category-type-option.expense .category-type-icon {
+  color: var(--danger-color);
+}
+
+.category-type-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Icon selector */
+.icon-selector {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+}
+
+.icon-option {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+}
+
+.icon-option:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.icon-option.selected {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Color picker */
+.color-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.color-option {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.selected {
+  border-color: var(--divider-color);
+  box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--primary-color);
+}
+
+/* Category dialog footer */
+.category-dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.category-dialog-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+
+.category-dialog-button.cancel {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--divider-color);
+}
+
+.category-dialog-button.cancel:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.category-dialog-button.save {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.category-dialog-button.save:hover {
+  background-color: var(--primary-color-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(46, 123, 255, 0.2);
+}
+
+/* Loading state */
+.categories-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.categories-loading-text {
+  margin-top: 16px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Empty state */
+.categories-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  padding: 32px;
+}
+
+.categories-empty-icon {
+  font-size: 72px;
+  color: var(--divider-color);
+  margin-bottom: 16px;
+}
+
+.categories-empty-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.categories-empty-description {
+  color: var(--text-secondary);
+  max-width: 400px;
+  margin-bottom: 24px;
+}
+
+.categories-empty-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+
+.categories-empty-button:hover {
+  background-color: var(--primary-color-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(46, 123, 255, 0.2);
+} 

@@ -1,0 +1,46 @@
+/* [project]/src/styles/theme-switcher.css [app-client] (css) */
+.theme-switcher {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.theme-switcher-icon {
+  transition: transform .3s;
+}
+
+.theme-switcher-icon:hover {
+  transform: rotate(30deg);
+}
+
+.theme-menu {
+  border-radius: 12px;
+  min-width: 160px;
+  overflow: hidden;
+}
+
+.theme-menu-item {
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  transition: background-color .2s;
+  display: flex;
+}
+
+.theme-menu-item:hover {
+  background-color: #0000000a;
+}
+
+.theme-menu-item.selected {
+  background-color: #00000014;
+}
+
+[data-theme="dark"] .theme-menu-item:hover {
+  background-color: #ffffff14;
+}
+
+[data-theme="dark"] .theme-menu-item.selected {
+  background-color: #ffffff1f;
+}
+
+/*# sourceMappingURL=src_styles_theme-switcher_css_f9ee138c._.single.css.map*/

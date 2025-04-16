@@ -1,0 +1,132 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  username  String    @unique
+  email     String    @unique
+  password  String
+  accounts  Account[]
+  categories Category[]
+  transactions Transaction[]
+  budgets    Budget[]
+  goals      Goal[]
+  settings   UserSettings?
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("users")
+}
+
+model Account {
+  id          Int           @id @default(autoincrement())
+  name        String
+  balance     Float         @default(0)
+  currency    String        @default("USD")
+  description String?
+  userId      Int           @map("user_id")
+  user        User          @relation(fields: [userId], references: [id])
+  transactions Transaction[]
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+  deletedAt   DateTime?     @map("deleted_at")
+
+  @@map("accounts")
+}
+
+model Category {
+  id            Int           @id @default(autoincrement())
+  name          String
+  type          String        @db.VarChar(20)
+  icon          String?
+  color         String?
+  userId        Int           @map("user_id")
+  user          User          @relation(fields: [userId], references: [id])
+  transactions  Transaction[]
+  budgets       Budget[]
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+  deletedAt     DateTime?     @map("deleted_at")
+
+  @@map("categories")
+}
+
+model Transaction {
+  id          Int       @id @default(autoincrement())
+  amount      Float
+  description String?
+  date        DateTime
+  type        String    @db.VarChar(20)
+  accountId   Int       @map("account_id")
+  account     Account   @relation(fields: [accountId], references: [id])
+  categoryId  Int       @map("category_id")
+  category    Category  @relation(fields: [categoryId], references: [id])
+  userId      Int       @map("user_id")
+  user        User      @relation(fields: [userId], references: [id])
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  @@map("transactions")
+}
+
+model Budget {
+  id          Int       @id @default(autoincrement())
+  amount      Float
+  period      String    @db.VarChar(20)
+  startDate   DateTime  @map("start_date")
+  endDate     DateTime  @map("end_date")
+  categoryId  Int       @map("category_id")
+  category    Category  @relation(fields: [categoryId], references: [id])
+  userId      Int       @map("user_id")
+  user        User      @relation(fields: [userId], references: [id])
+  name        String?
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  @@map("budgets")
+}
+
+model Goal {
+  id            Int       @id @default(autoincrement())
+  name          String
+  targetAmount  Float     @map("target_amount")
+  currentAmount Float     @default(0) @map("current_amount")
+  deadline      DateTime?
+  description   String?
+  status        String    @default("in_progress")
+  userId        Int       @map("user_id")
+  user          User      @relation(fields: [userId], references: [id])
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  deletedAt     DateTime? @map("deleted_at")
+
+  @@map("goals")
+}
+
+model UserSettings {
+  id            Int       @id @default(autoincrement())
+  userId        Int       @unique @map("user_id")
+  user          User      @relation(fields: [userId], references: [id])
+  theme         String    @default("light")
+  currency      String    @default("USD")
+  language      String    @default("en")
+  dateFormat    String    @default("MM/DD/YYYY") @map("date_format")
+  notifications Boolean   @default(true)
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  @@map("user_settings")
+} 

@@ -1,0 +1,4964 @@
+@import "tailwindcss";
+
+/* FORCE LIGHT THEME STYLES - HIGHEST PRIORITY */
+html[data-theme="light"] .sidebar,
+.light-theme.sidebar,
+.sidebar.light-theme,
+.light-mode .sidebar {
+  background-color: #f8f9fa !important;
+  background: #f8f9fa !important;
+}
+
+html[data-theme="light"] .MuiDrawer-paper,
+.light-theme .MuiDrawer-paper,
+.light-mode .MuiDrawer-paper {
+  background-color: #f8f9fa !important;
+  background: #f8f9fa !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+html[data-theme="light"] .sidebar .MuiListItemButton-root,
+.light-theme .sidebar .MuiListItemButton-root {
+  color: #333 !important;
+  background-color: transparent !important;
+}
+
+html[data-theme="light"] .sidebar *,
+.light-theme .sidebar * {
+  color: inherit;
+}
+
+html[data-theme="light"] .sidebar .MuiListItemIcon-root,
+.light-theme .sidebar .MuiListItemIcon-root {
+  color: #1976d2 !important;
+}
+
+/* Remove any blue background from light theme sidebar */
+html:not([data-theme="dark"]) .sidebar {
+  background-color: #f8f9fa !important;
+  background-image: none !important;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  
+  /* Light theme variables */
+  --background: #ffffff;
+  --foreground: #11181C;
+  --card: #ffffff;
+  --card-foreground: #11181C;
+  --popover: #ffffff;
+  --popover-foreground: #11181C;
+  --primary: #006FEE;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #11181C;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #11181C;
+  --destructive: #ff4444;
+  --destructive-foreground: #ffffff;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #006FEE;
+  --radius: 0.5rem;
+}
+
+/* Dark theme */
+.dark-theme {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10;
+  --background-end-rgb: 0, 0, 0;
+  
+  /* Dark theme variables */
+  --background: #09090b;
+  --foreground: #ffffff;
+  --card: #09090b;
+  --card-foreground: #ffffff;
+  --popover: #09090b;
+  --popover-foreground: #ffffff;
+  --primary: #006FEE;
+  --primary-foreground: #ffffff;
+  --secondary: #27272a;
+  --secondary-foreground: #ffffff;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #ffffff;
+  --destructive: #ff4444;
+  --destructive-foreground: #ffffff;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #006FEE;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Единая тень для карточек */
+  --card-border: 1px solid rgba(255, 255, 255, 0.08); /* Единая граница */
+  --primary-color-rgb: 144, 202, 249;
+}
+
+@media (prefers-color-scheme: dark) {
+  .system-theme {
+    color-scheme: dark;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 10, 10, 10;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: var(--background-color);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main content styles */
+main {
+  background-color: var(--background-color);
+}
+
+/* Card and container styles */
+.MuiCard-root, 
+.MuiPaper-root,
+.MuiContainer-root,
+.MuiDrawer-paper {
+  background-color: var(--paper-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Dashboard content styles */
+[data-theme="dark"] .dashboard-content,
+[data-theme="dark"] .MuiBox-root,
+[data-theme="dark"] .MuiContainer-root,
+[data-theme="dark"] .MuiGrid-root {
+  background-color: var(--background-color) !important;
+}
+
+/* Styles for category and account cards in dark mode */
+[data-theme="dark"] .category-card,
+[data-theme="dark"] .account-card,
+[data-theme="dark"] .budget-card,
+[data-theme="dark"] .goal-card,
+[data-theme="dark"] .MuiPaper-root {
+  background-color: #2c2c2c !important;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Enhanced text styles for dark mode - preventing black outlines */
+[data-theme="dark"] .MuiTypography-root,
+[data-theme="dark"] .MuiListItemText-primary,
+[data-theme="dark"] .MuiListItemText-secondary,
+[data-theme="dark"] .MuiButton-root,
+[data-theme="dark"] .MuiMenuItem-root,
+[data-theme="dark"] .MuiFormControlLabel-label,
+[data-theme="dark"] .MuiChip-label {
+  color: var(--text-primary) !important;
+  text-shadow: none !important; /* Remove any text shadow */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fix for icon colors */
+[data-theme="dark"] .MuiSvgIcon-root {
+  color: var(--text-primary);
+}
+
+/* Fix for specifically account/category/goal cards */
+[data-theme="dark"] .category-card .MuiTypography-root,
+[data-theme="dark"] .account-card .MuiTypography-root,
+[data-theme="dark"] .budget-card .MuiTypography-root,
+[data-theme="dark"] .goal-card .MuiTypography-root,
+[data-theme="dark"] .dashboard-card .MuiTypography-root,
+[data-theme="dark"] .chart-card .MuiTypography-root,
+[data-theme="dark"] .transaction-card .MuiTypography-root {
+  color: var(--text-primary) !important;
+  text-shadow: none !important;
+}
+
+/* Fix for all chip elements in dark mode */
+[data-theme="dark"] .MuiChip-root {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .goal-card .MuiChip-root,
+[data-theme="dark"] .budget-card .MuiChip-root {
+  background-color: var(--paper-color) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Special styling for colored chips */
+[data-theme="dark"] .MuiChip-colorPrimary {
+  background-color: rgba(25, 118, 210, 0.15) !important;
+  border-color: rgba(25, 118, 210, 0.3) !important;
+}
+
+[data-theme="dark"] .MuiChip-colorSuccess {
+  background-color: rgba(76, 175, 80, 0.15) !important;
+  border-color: rgba(76, 175, 80, 0.3) !important;
+}
+
+[data-theme="dark"] .MuiChip-colorWarning {
+  background-color: rgba(255, 152, 0, 0.15) !important;
+  border-color: rgba(255, 152, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .MuiChip-colorError {
+  background-color: rgba(244, 67, 54, 0.15) !important;
+  border-color: rgba(244, 67, 54, 0.3) !important;
+}
+
+/* Fix for in-progress indicators */
+[data-theme="dark"] .goal-card [class*="MuiChip"],
+[data-theme="dark"] .budget-card [class*="MuiChip"] {
+  color: var(--text-primary) !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Fix for typography in cards - ensure no black text */
+[data-theme="dark"] .MuiPaper-root .MuiTypography-h4,
+[data-theme="dark"] .MuiPaper-root .MuiTypography-h6,
+[data-theme="dark"] .MuiPaper-root .MuiTypography-body1,
+[data-theme="dark"] .MuiPaper-root .MuiTypography-body2,
+[data-theme="dark"] .MuiPaper-root .MuiTypography-caption {
+  color: var(--text-primary) !important;
+  text-shadow: none !important;
+}
+
+/* Fix for secondary text in all cards */
+[data-theme="dark"] .MuiTypography-colorTextSecondary {
+  color: var(--text-secondary) !important;
+  text-shadow: none !important;
+}
+
+/* Fix progress bars in dark theme */
+[data-theme="dark"] .MuiLinearProgress-root {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 4px;
+}
+
+.MuiTypography-root {
+  color: var(--text-primary) !important;
+}
+
+.MuiDivider-root {
+  background-color: var(--divider-color) !important;
+}
+
+/* Additional styles for better theme integration */
+.MuiButton-root {
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+}
+
+.MuiTextField-root .MuiInputBase-root {
+  color: var(--text-primary);
+}
+
+.MuiInputLabel-root {
+  color: var(--text-secondary);
+}
+
+/* Enhance Radio Buttons for theme selection */
+.MuiRadio-root.Mui-checked {
+  color: var(--primary-color) !important;
+}
+
+.MuiFormControlLabel-root:has(.Mui-checked) {
+  font-weight: bold;
+}
+
+/* Theme transition effect */
+body, .MuiPaper-root, .MuiTypography-root, .MuiButton-root, 
+.MuiInputBase-root, .MuiInputLabel-root, .MuiIconButton-root,
+.MuiRadio-root, .MuiFormControlLabel-root {
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+/* Force theme update */
+[data-theme="dark"] .MuiPaper-root {
+  background-color: var(--paper-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .MuiPaper-root {
+  background-color: var(--paper-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Adding style for theme loading state */
+[data-theme-loading="true"] * {
+  cursor: wait !important;
+}
+
+/* Enhanced dashboard card styles */
+[data-theme="dark"] .dashboard-card,
+[data-theme="dark"] .chart-card,
+[data-theme="dark"] .transaction-card,
+[data-theme="dark"] .budget-card {
+  background-color: #2c2c2c !important;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Reduce contrast between sections in dark mode */
+[data-theme="dark"] .MuiContainer-root,
+[data-theme="dark"] .MuiBox-root,
+[data-theme="dark"] .MuiGrid-root {
+  background-color: #1a1a1a !important;
+}
+
+/* Make the dark theme consistent from top to bottom */
+[data-theme="dark"] body,
+[data-theme="dark"] html,
+[data-theme="dark"] #root,
+[data-theme="dark"] #__next,
+[data-theme="dark"] .dashboard-layout,
+[data-theme="dark"] main,
+[data-theme="dark"] header,
+[data-theme="dark"] footer,
+[data-theme="dark"] section,
+[data-theme="dark"] nav {
+  background-color: #121212 !important;
+  color: var(--text-primary);
+}
+
+/* Ensure all MUI components follow the theme */
+[data-theme="dark"] .MuiAppBar-root {
+  background-color: #242424 !important;
+}
+
+/* Fix for sidebar/drawer in light theme */
+[data-theme="light"] .MuiDrawer-paper {
+  background-color: #f0f0f0 !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+/* Fix for sidebar/drawer in dark theme */
+[data-theme="dark"] .MuiDrawer-paper {
+  background-color: #1e1e1e !important; /* Darker for dark theme */
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Navigation menu item styling */
+[data-theme="light"] .MuiDrawer-paper .MuiListItem-root .MuiListItemButton-root {
+  color: rgba(0, 0, 0, 0.87) !important;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .MuiDrawer-paper .MuiListItem-root .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .MuiDrawer-paper .MuiListItem-root .MuiListItemIcon-root {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+[data-theme="dark"] .MuiDrawer-paper .MuiListItem-root .MuiListItemButton-root {
+  color: rgba(255, 255, 255, 0.87) !important;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .MuiDrawer-paper .MuiListItem-root .MuiListItemButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .MuiDrawer-paper .MuiListItem-root .MuiListItemIcon-root {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Overriding specific elements for dark theme */
+[data-theme="dark"] body {
+  background: #1a1a1a;
+}
+
+[data-theme="dark"] .dashboard-layout {
+  background-color: #1a1a1a;
+}
+
+/* Target specific layout elements */
+[data-theme="dark"] header,
+[data-theme="dark"] main,
+[data-theme="dark"] footer,
+[data-theme="dark"] section,
+[data-theme="dark"] nav {
+  background-color: #1a1a1a;
+}
+
+/* Fix progress indicator */
+[data-theme="dark"] .MuiLinearProgress-root {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fix for card content */
+[data-theme="dark"] .MuiCardContent-root {
+  background-color: #2c2c2c !important;
+}
+
+/* Fix for budgets and progress bars */
+[data-theme="dark"] .MuiCircularProgress-root,
+[data-theme="dark"] .MuiLinearProgress-bar {
+  color: var(--primary-color) !important;
+}
+
+/* Better visibility for card borders */
+[data-theme="dark"] .MuiPaper-root {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Progress bar cosmetics */
+[data-theme="dark"] .MuiLinearProgress-root.MuiLinearProgress-colorSuccess .MuiLinearProgress-bar {
+  background-color: var(--success-color) !important;
+}
+
+[data-theme="dark"] .MuiLinearProgress-root.MuiLinearProgress-colorWarning .MuiLinearProgress-bar {
+  background-color: var(--warning-color) !important;
+}
+
+[data-theme="dark"] .MuiLinearProgress-root.MuiLinearProgress-colorError .MuiLinearProgress-bar {
+  background-color: var(--error-color) !important;
+}
+
+/* Fix for colored chips */
+[data-theme="dark"] .MuiChip-colorSuccess {
+  background-color: rgba(76, 175, 80, 0.15) !important;
+  border: 1px solid rgba(76, 175, 80, 0.25) !important;
+}
+
+[data-theme="dark"] .MuiChip-colorWarning {
+  background-color: rgba(255, 152, 0, 0.15) !important;
+  border: 1px solid rgba(255, 152, 0, 0.25) !important;
+}
+
+[data-theme="dark"] .MuiChip-colorError {
+  background-color: rgba(244, 67, 54, 0.15) !important;
+  border: 1px solid rgba(244, 67, 54, 0.25) !important;
+}
+
+/* Fix for numeric and currency amounts in dark theme */
+[data-theme="dark"] .MuiTypography-h4 {
+  color: var(--text-primary) !important;
+  text-shadow: none !important;
+}
+
+/* Fix dialog styles for dark mode */
+[data-theme="dark"] .MuiDialog-paper {
+  background-color: #2c2c2c !important;
+  color: var(--text-primary) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Fix input fields for dark mode */
+[data-theme="dark"] .MuiOutlinedInput-root {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Additional fixes for specific text elements seen in screenshots */
+[data-theme="dark"] .account-card .MuiTypography-root,
+[data-theme="dark"] .account-card .MuiTypography-h4,
+[data-theme="dark"] .account-card .MuiTypography-h6,
+[data-theme="dark"] .account-card .MuiTypography-body1,
+[data-theme="dark"] .account-card .MuiTypography-body2 {
+  color: rgba(255, 255, 255, 0.87) !important;
+  text-shadow: none !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+[data-theme="dark"] .goal-card .MuiTypography-caption,
+[data-theme="dark"] .goal-card .MuiChip-label {
+  color: rgba(255, 255, 255, 0.87) !important;
+  text-shadow: none !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Extra contrast for important numbers */
+[data-theme="dark"] .MuiPaper-root .MuiTypography-h4,
+[data-theme="dark"] .account-card .MuiTypography-h4 {
+  color: rgba(255, 255, 255, 0.95) !important; 
+  font-weight: 500;
+}
+
+/* Improve account and category status indicators */
+[data-theme="dark"] .account-card .MuiTypography-body2,
+[data-theme="dark"] .category-card .MuiTypography-body2 {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Enhancing dark mode styles for in-progress status */
+[data-theme="dark"] .goal-card [class*="in progress"] {
+  background-color: rgba(25, 118, 210, 0.2) !important;
+  color: #90caf9 !important;
+  border-color: rgba(144, 202, 249, 0.5) !important;
+}
+
+/* Enhancing dark mode styles for money values in cards */
+[data-theme="dark"] .goal-card .MuiTypography-body2,
+[data-theme="dark"] .budget-card .MuiTypography-body2 {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 400;
+}
+
+/* Enhanced radio buttons and switches for dark mode */
+[data-theme="dark"] .MuiRadio-root,
+[data-theme="dark"] .MuiSwitch-root {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .MuiRadio-root.Mui-checked {
+  color: var(--primary-color) !important;
+}
+
+/* Enhanced switch style for notifications */
+[data-theme="dark"] .MuiSwitch-track {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .Mui-checked + .MuiSwitch-track {
+  background-color: rgba(var(--primary-color-rgb), 0.5) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .MuiSwitch-thumb {
+  background-color: #fff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .Mui-checked .MuiSwitch-thumb {
+  background-color: var(--primary-color) !important;
+}
+
+/* Enhanced settings panel - making it blend better */
+[data-theme="dark"] .settings-panel,
+[data-theme="dark"] .MuiAccordion-root {
+  background-color: #2c2c2c !important;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+[data-theme="dark"] .MuiAccordionSummary-root {
+  background-color: #333333 !important;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* Enhanced dropdown menus for settings */
+[data-theme="dark"] .MuiSelect-select,
+[data-theme="dark"] .MuiMenuItem-root {
+  background-color: #2c2c2c !important;
+}
+
+[data-theme="dark"] .MuiMenu-paper,
+[data-theme="dark"] .MuiPopover-paper {
+  background-color: #333333 !important;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Better focus styles for inputs */
+[data-theme="dark"] .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary-color) !important;
+  border-width: 2px;
+}
+
+/* Main background for all elements in dark mode */
+[data-theme="dark"] body,
+[data-theme="dark"] html,
+[data-theme="dark"] #root,
+[data-theme="dark"] #__next,
+[data-theme="dark"] .dashboard-layout,
+[data-theme="dark"] main,
+[data-theme="dark"] header,
+[data-theme="dark"] footer,
+[data-theme="dark"] section,
+[data-theme="dark"] nav {
+  background-color: #121212 !important;
+  color: var(--text-primary);
+}
+
+/* Ensure all backgrounds are consistent */
+[data-theme="dark"] .MuiContainer-root,
+[data-theme="dark"] .MuiBox-root,
+[data-theme="dark"] .MuiGrid-root,
+[data-theme="dark"] .MuiPaper-root {
+  background-color: #1e1e1e !important;
+}
+
+/* Fix for dialogs and modals in dark mode */
+[data-theme="dark"] .MuiDialog-paper,
+[data-theme="dark"] .MuiPopover-paper,
+[data-theme="dark"] .MuiMenu-paper {
+  background-color: #1e1e1e !important;
+  color: var(--text-primary) !important;
+}
+
+/* Стили для светлой темы - восстановленные и улучшенные */
+[data-theme="light"] .category-card {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+[data-theme="light"] .category-card:hover {
+  background: linear-gradient(145deg, #f8f8f8, #ffffff);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .settings-section {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .settings-section:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .account-card {
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .account-card:hover {
+  background: linear-gradient(145deg, #f8f8f8, #ffffff);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e0e0e0;
+}
+
+[data-theme="light"] .sidebar-item {
+  color: #333333;
+}
+
+[data-theme="light"] .sidebar-item:hover {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .sidebar-item.active {
+  background: #e8f0fe;
+  color: #006FEE;
+}
+
+/* Восстановленные стили для информации о категории в светлой теме */
+[data-theme="light"] .category-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+[data-theme="light"] .category-icon-container {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 12px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+[data-theme="light"] .category-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+[data-theme="light"] .category-name {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+  letter-spacing: 0.3px;
+}
+
+[data-theme="light"] .category-type {
+  font-size: 14px !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[data-theme="light"] .category-type-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+[data-theme="light"] .category-type-indicator.income {
+  background-color: #4caf50;
+}
+
+[data-theme="light"] .category-type-indicator.expense {
+  background-color: #f44336;
+}
+
+/* Восстановленные стили для кнопок действий в светлой теме */
+[data-theme="light"] .category-actions {
+  display: flex;
+  gap: 8px;
+}
+
+[data-theme="light"] .category-actions .MuiIconButton-root {
+  background-color: rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .category-actions .MuiIconButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .category-actions .MuiIconButton-root[color="error"]:hover {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* Восстановленные стили для заголовка страницы категорий в светлой теме */
+[data-theme="light"] .categories-header .MuiTypography-h4 {
+  font-weight: 700;
+  font-size: 28px;
+  background: linear-gradient(90deg, #1976d2, #42a5f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+/* Восстановленные стили для кнопки добавления категории в светлой теме */
+[data-theme="light"] .add-category-button {
+  background: linear-gradient(45deg, #1976d2, #42a5f5) !important;
+  padding: 8px 20px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.25) !important;
+  border: none !important;
+  text-transform: none !important;
+  font-size: 15px !important;
+  color: white !important;
+}
+
+[data-theme="light"] .add-category-button:hover {
+  background: linear-gradient(45deg, #1565c0, #1e88e5) !important;
+  box-shadow: 0 6px 12px rgba(25, 118, 210, 0.3) !important;
+  transform: translateY(-2px);
+}
+
+/* Восстановленные стили для диалога создания/редактирования категории в светлой теме */
+[data-theme="light"] .MuiDialog-paper {
+  background: linear-gradient(135deg, #ffffff, #f9f9f9) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="light"] .MuiDialogTitle-root {
+  background-color: rgba(25, 118, 210, 0.05) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  padding: 16px 24px !important;
+}
+
+[data-theme="light"] .MuiDialogContent-root {
+  padding: 24px !important;
+}
+
+/* Восстановленные стили для формы категории в светлой теме */
+[data-theme="light"] .MuiDialog-paper .MuiTextField-root {
+  margin-bottom: 20px !important;
+}
+
+[data-theme="light"] .MuiDialog-paper .MuiInputLabel-root {
+  font-weight: 500 !important;
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+[data-theme="light"] .MuiDialog-paper .MuiOutlinedInput-root {
+  border-radius: 8px !important;
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+[data-theme="light"] .MuiDialog-paper .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="light"] .MuiDialog-paper .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2 !important;
+  border-width: 2px !important;
+}
+
+/* Восстановленные стили для выбора иконок в светлой теме */
+[data-theme="light"] .icon-selector-container {
+  margin-top: 16px !important;
+  background-color: rgba(0, 0, 0, 0.02) !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .icon-selector-title {
+  font-weight: 500 !important;
+  color: rgba(0, 0, 0, 0.75) !important;
+  margin-bottom: 8px !important;
+}
+
+[data-theme="light"] .icon-selector-container .MuiChip-root {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  font-size: 18px !important;
+}
+
+[data-theme="light"] .icon-selector-container .MuiChip-root:hover {
+  background-color: rgba(25, 118, 210, 0.08) !important;
+  transform: scale(1.1) !important;
+}
+
+[data-theme="light"] .icon-selector-container .MuiChip-root.Mui-selected {
+  background-color: rgba(25, 118, 210, 0.12) !important;
+  border-color: rgba(25, 118, 210, 0.3) !important;
+}
+
+/* Восстановленные стили для страницы настроек в светлой теме */
+[data-theme="light"] .settings-section {
+  background: linear-gradient(145deg, #ffffff, #f9f9f9) !important;
+  border-radius: 12px !important;
+  margin-bottom: 24px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .settings-section-header {
+  padding: 16px 20px !important;
+  background-color: rgba(25, 118, 210, 0.05) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .settings-section-header .MuiSvgIcon-root {
+  color: #1976d2 !important;
+}
+
+[data-theme="light"] .settings-section-header .MuiTypography-root {
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="light"] .settings-section-content {
+  padding: 20px !important;
+}
+
+/* Восстановленные стили для форм в светлой теме */
+[data-theme="light"] .MuiFormControl-root {
+  width: 100% !important;
+  margin-bottom: 16px !important;
+}
+
+[data-theme="light"] .MuiFormControl-root .MuiFormLabel-root {
+  color: rgba(0, 0, 0, 0.7) !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Восстановленные стили для радиокнопок темы в светлой теме */
+[data-theme="light"] .MuiRadio-root {
+  padding: 9px !important;
+}
+
+[data-theme="light"] .MuiRadio-root.Mui-checked {
+  color: #1976d2 !important;
+}
+
+[data-theme="light"] .MuiFormControlLabel-root {
+  margin-left: 4px !important;
+  margin-right: 16px !important;
+}
+
+[data-theme="light"] .MuiFormControlLabel-label {
+  font-size: 15px !important;
+  transition: all 0.2s ease !important;
+  color: rgba(0, 0, 0, 0.75) !important;
+}
+
+[data-theme="light"] .MuiFormControlLabel-root:has(.Mui-checked) .MuiFormControlLabel-label {
+  color: #1976d2 !important;
+  font-weight: 600 !important;
+}
+
+/* Восстановленные стили для селекторов в настройках светлой темы */
+[data-theme="light"] .MuiSelect-select {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+  border-radius: 8px !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="light"] .MuiSelect-icon {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="light"] .MuiOutlinedInput-root {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+  border-radius: 8px !important;
+}
+
+[data-theme="light"] .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="light"] .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2 !important;
+  border-width: 2px !important;
+}
+
+[data-theme="light"] .MuiInputBase-input {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Восстановленные стили для переключателя уведомлений в светлой теме */
+[data-theme="light"] .MuiSwitch-switchBase {
+  padding: 8px !important;
+}
+
+[data-theme="light"] .MuiSwitch-track {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  opacity: 1 !important;
+  border-radius: 40px !important;
+}
+
+[data-theme="light"] .MuiSwitch-thumb {
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .Mui-checked + .MuiSwitch-track {
+  background-color: rgba(25, 118, 210, 0.5) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .Mui-checked .MuiSwitch-thumb {
+  background-color: #1976d2 !important;
+}
+
+/* Восстановленные стили для кнопок в светлой теме */
+[data-theme="light"] button[type="submit"] {
+  background: linear-gradient(45deg, #1976d2, #42a5f5) !important;
+  padding: 10px 24px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(25, 118, 210, 0.25) !important;
+  border: none !important;
+  text-transform: none !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+  color: white !important;
+}
+
+[data-theme="light"] button[type="submit"]:hover {
+  background: linear-gradient(45deg, #1565c0, #1e88e5) !important;
+  box-shadow: 0 6px 15px rgba(25, 118, 210, 0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Восстановленные стили для карточек аккаунтов в светлой теме */
+[data-theme="light"] .account-card {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.3s ease !important;
+}
+
+[data-theme="light"] .account-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+  border-color: rgba(25, 118, 210, 0.15) !important;
+}
+
+[data-theme="light"] .account-card h6 {
+  color: #1976d2;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+[data-theme="light"] .account-card h4 {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 700;
+  font-size: 26px;
+  margin: 8px 0;
+  background: linear-gradient(90deg, #1976d2, #42a5f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.5px;
+}
+
+[data-theme="light"] .account-card p {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  margin-top: 8px;
+  font-style: italic;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Восстановленные стили для иконок действий в карточке аккаунта в светлой теме */
+[data-theme="light"] .account-card .MuiIconButton-root {
+  color: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+  background-color: rgba(0, 0, 0, 0.04);
+  margin-left: 4px;
+}
+
+[data-theme="light"] .account-card .MuiIconButton-root:hover {
+  color: #1976d2;
+  background-color: rgba(25, 118, 210, 0.08);
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .account-card .MuiIconButton-root[color="error"]:hover {
+  color: #f44336 !important;
+  background-color: rgba(244, 67, 54, 0.08);
+}
+
+/* Восстановленные стили для кнопок добавления в светлой теме */
+[data-theme="light"] button[class*="add-"],
+[data-theme="light"] [class*="add"],
+[data-theme="light"] button:has(svg[data-testid="AddIcon"]) {
+  background: linear-gradient(45deg, #1976d2, #42a5f5) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 16px;
+  text-transform: none;
+  box-shadow: 0 3px 8px rgba(25, 118, 210, 0.25);
+  transition: all 0.2s ease;
+  border: none;
+}
+
+[data-theme="light"] button[class*="add-"]:hover,
+[data-theme="light"] [class*="add"]:hover,
+[data-theme="light"] button:has(svg[data-testid="AddIcon"]):hover {
+  background: linear-gradient(45deg, #1565c0, #1e88e5) !important;
+  box-shadow: 0 5px 12px rgba(25, 118, 210, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Восстановленные стили для карточек целей в светлой теме */
+[data-theme="light"] .goal-card {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa) !important;
+  border-radius: 12px !important;
+  border-left: 3px solid var(--success-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease !important;
+  padding: 16px !important;
+}
+
+[data-theme="light"] .goal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Исправленные и улучшенные стили для темной темы */
+[data-theme="dark"] .category-card {
+  background: linear-gradient(145deg, #2a2a2a, #323232) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+[data-theme="dark"] .category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] .category-card.income {
+  border-left: 3px solid #4caf50 !important;
+}
+
+[data-theme="dark"] .category-card.expense {
+  border-left: 3px solid #f44336 !important;
+}
+
+/* Исправленные стили для информации о категории в темной теме */
+[data-theme="dark"] .category-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+[data-theme="dark"] .category-icon-container {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 12px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .category-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+[data-theme="dark"] .category-name {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  letter-spacing: 0.3px;
+}
+
+[data-theme="dark"] .category-type {
+  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[data-theme="dark"] .category-type-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+[data-theme="dark"] .category-type-indicator.income {
+  background-color: #4caf50;
+}
+
+[data-theme="dark"] .category-type-indicator.expense {
+  background-color: #f44336;
+}
+
+/* Исправленные стили для кнопок действий в темной теме */
+[data-theme="dark"] .category-actions {
+  display: flex;
+  gap: 8px;
+}
+
+[data-theme="dark"] .category-actions .MuiIconButton-root {
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .category-actions .MuiIconButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .category-actions .MuiIconButton-root[color="error"]:hover {
+  background-color: rgba(244, 67, 54, 0.15);
+}
+
+/* Исправленные стили для заголовка страницы категорий в темной теме */
+[data-theme="dark"] .categories-header .MuiTypography-h4 {
+  font-weight: 700;
+  font-size: 28px;
+  background: linear-gradient(90deg, #90caf9, #64b5f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+/* Исправленные стили для кнопки добавления категории в темной теме */
+[data-theme="dark"] .add-category-button {
+  background: linear-gradient(45deg, #1976d2, #42a5f5) !important;
+  padding: 8px 20px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4) !important;
+  border: none !important;
+  text-transform: none !important;
+  font-size: 15px !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .add-category-button:hover {
+  background: linear-gradient(45deg, #1565c0, #1e88e5) !important;
+  box-shadow: 0 6px 16px rgba(33, 150, 243, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+/* Исправленные стили для диалога в темной теме */
+[data-theme="dark"] .MuiDialog-paper {
+  background: linear-gradient(135deg, #2c2c2c, #333333) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .MuiDialogTitle-root {
+  background-color: rgba(25, 118, 210, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  padding: 16px 24px !important;
+}
+
+[data-theme="dark"] .MuiDialogContent-root {
+  padding: 24px !important;
+}
+
+/* Исправленные стили для формы категории в темной теме */
+[data-theme="dark"] .MuiDialog-paper .MuiTextField-root {
+  margin-bottom: 20px !important;
+}
+
+[data-theme="dark"] .MuiDialog-paper .MuiInputLabel-root {
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-theme="dark"] .MuiDialog-paper .MuiOutlinedInput-root {
+  border-radius: 8px !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .MuiDialog-paper .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .MuiDialog-paper .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #90caf9 !important;
+  border-width: 2px !important;
+}
+
+/* Исправленные стили для выбора иконок в темной теме */
+[data-theme="dark"] .icon-selector-container {
+  margin-top: 16px !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .icon-selector-title {
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  margin-bottom: 8px !important;
+}
+
+[data-theme="dark"] .icon-selector-container .MuiChip-root {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  font-size: 18px !important;
+}
+
+[data-theme="dark"] .icon-selector-container .MuiChip-root:hover {
+  background-color: rgba(144, 202, 249, 0.15) !important;
+  transform: scale(1.1) !important;
+}
+
+[data-theme="dark"] .icon-selector-container .MuiChip-root.Mui-selected {
+  background-color: rgba(144, 202, 249, 0.2) !important;
+  border-color: rgba(144, 202, 249, 0.4) !important;
+}
+
+/* Исправленные стили для страницы настроек в темной теме */
+[data-theme="dark"] .settings-section {
+  background: linear-gradient(145deg, #2a2a2a, #323232) !important;
+  border-radius: 12px !important;
+  margin-bottom: 24px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .settings-section-header {
+  padding: 16px 20px !important;
+  background-color: rgba(30, 30, 30, 0.5) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .settings-section-header .MuiSvgIcon-root {
+  color: #90caf9 !important;
+}
+
+[data-theme="dark"] .settings-section-header .MuiTypography-root {
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="dark"] .settings-section-content {
+  padding: 20px !important;
+}
+
+/* Исправленные стили для всех форм в темной теме */
+[data-theme="dark"] .MuiFormControl-root {
+  width: 100% !important;
+  margin-bottom: 16px !important;
+}
+
+[data-theme="dark"] .MuiFormControl-root .MuiFormLabel-root {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Исправленные стили для радиокнопок темы в темной теме */
+[data-theme="dark"] .MuiRadio-root {
+  padding: 9px !important;
+}
+
+[data-theme="dark"] .MuiRadio-root.Mui-checked {
+  color: #90caf9 !important;
+}
+
+[data-theme="dark"] .MuiFormControlLabel-root {
+  margin-left: 4px !important;
+  margin-right: 16px !important;
+}
+
+[data-theme="dark"] .MuiFormControlLabel-label {
+  font-size: 15px !important;
+  transition: all 0.2s ease !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="dark"] .MuiFormControlLabel-root:has(.Mui-checked) .MuiFormControlLabel-label {
+  color: #90caf9 !important;
+  font-weight: 600 !important;
+}
+
+/* Исправленные стили для селекторов в настройках темной темы */
+[data-theme="dark"] .MuiSelect-select {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="dark"] .MuiSelect-icon {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-theme="dark"] .MuiOutlinedInput-root {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px !important;
+}
+
+[data-theme="dark"] .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #90caf9 !important;
+  border-width: 2px !important;
+}
+
+[data-theme="dark"] .MuiInputBase-input {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Исправленные стили для переключателя уведомлений в темной теме */
+[data-theme="dark"] .MuiSwitch-switchBase {
+  padding: 8px !important;
+}
+
+[data-theme="dark"] .MuiSwitch-track {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  opacity: 1 !important;
+  border-radius: 40px !important;
+}
+
+[data-theme="dark"] .MuiSwitch-thumb {
+  background-color: #f5f5f5 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="dark"] .Mui-checked + .MuiSwitch-track {
+  background-color: rgba(144, 202, 249, 0.5) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .Mui-checked .MuiSwitch-thumb {
+  background-color: #90caf9 !important;
+}
+
+/* Исправленные стили для кнопок в темной теме */
+[data-theme="dark"] button[type="submit"],
+[data-theme="dark"] .MuiButton-containedPrimary {
+  background: linear-gradient(45deg, #1976d2, #42a5f5) !important;
+  padding: 10px 24px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4) !important;
+  border: none !important;
+  text-transform: none !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+  color: white !important;
+}
+
+[data-theme="dark"] button[type="submit"]:hover,
+[data-theme="dark"] .MuiButton-containedPrimary:hover {
+  background: linear-gradient(45deg, #1565c0, #1e88e5) !important;
+  box-shadow: 0 6px 16px rgba(33, 150, 243, 0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Исправленные стили для карточек аккаунтов в темной теме */
+[data-theme="dark"] .account-card {
+  background: linear-gradient(145deg, #2d3748, #1a202c) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+[data-theme="dark"] .account-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35) !important;
+  border-color: rgba(66, 153, 225, 0.3) !important;
+}
+
+[data-theme="dark"] .account-card h6 {
+  color: #90caf9;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+[data-theme="dark"] .account-card h4 {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+  font-size: 26px;
+  margin: 8px 0;
+  background: linear-gradient(90deg, #64b5f6, #90caf9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.5px;
+}
+
+[data-theme="dark"] .account-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-top: 8px;
+  font-style: italic;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Исправленные стили для иконок действий в карточке аккаунта в темной теме */
+[data-theme="dark"] .account-card .MuiIconButton-root {
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  margin-left: 4px;
+}
+
+[data-theme="dark"] .account-card .MuiIconButton-root:hover {
+  color: #90caf9;
+  background-color: rgba(144, 202, 249, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .account-card .MuiIconButton-root[color="error"]:hover {
+  color: #ff5252 !important;
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* Исправленные стили для кнопок добавления в темной теме */
+[data-theme="dark"] button[class*="add-"],
+[data-theme="dark"] [class*="add"],
+[data-theme="dark"] button:has(svg[data-testid="AddIcon"]) {
+  background: linear-gradient(45deg, #1976d2, #42a5f5) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 16px;
+  text-transform: none;
+  box-shadow: 0 3px 10px rgba(33, 150, 243, 0.4);
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] button[class*="add-"]:hover,
+[data-theme="dark"] [class*="add"]:hover,
+[data-theme="dark"] button:has(svg[data-testid="AddIcon"]):hover {
+  background: linear-gradient(45deg, #1565c0, #1e88e5) !important;
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Исправленные стили для карточек целей в темной теме */
+[data-theme="dark"] .goal-card {
+  background: linear-gradient(145deg, #2c2c2c, #343434) !important;
+  border-radius: 12px !important;
+  border-left: 3px solid var(--success-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+  transition: all 0.3s ease !important;
+  padding: 16px !important;
+}
+
+[data-theme="dark"] .goal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Дополнительные стили для фона в темной теме */
+[data-theme="dark"] body,
+[data-theme="dark"] html,
+[data-theme="dark"] #root,
+[data-theme="dark"] #__next,
+[data-theme="dark"] main,
+[data-theme="dark"] .MuiContainer-root,
+[data-theme="dark"] .MuiBox-root {
+  background-color: #121212 !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* Принудительные стили для бокового меню */
+/* Эти стили имеют максимальный приоритет для удаления синего фона */
+
+/* Основной селектор для бокового меню */
+.MuiDrawer-root .MuiDrawer-paper,
+.MuiDrawer-paper,
+.MuiDrawer-docked .MuiDrawer-paper,
+div[class*="MuiDrawer"] .MuiDrawer-paper {
+  background-color: #f0f0f0 !important;
+  background: #f0f0f0 !important;
+  background-image: none !important;
+}
+
+[data-theme="dark"] .MuiDrawer-root .MuiDrawer-paper,
+[data-theme="dark"] .MuiDrawer-paper,
+[data-theme="dark"] .MuiDrawer-docked .MuiDrawer-paper,
+[data-theme="dark"] div[class*="MuiDrawer"] .MuiDrawer-paper {
+  background-color: #1e1e1e !important;
+  background: #1e1e1e !important;
+  background-image: none !important;
+}
+
+/* Дополнительные селекторы для списков и пунктов меню */
+.MuiDrawer-paper .MuiList-root,
+.MuiDrawer-paper .MuiListItem-root,
+.MuiDrawer-paper .MuiListItemButton-root {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Стили для иконок в списке меню */
+.MuiDrawer-paper .MuiListItemIcon-root {
+  color: #1976d2 !important;  /* Синий цвет для иконок */
+}
+
+[data-theme="dark"] .MuiDrawer-paper .MuiListItemIcon-root {
+  color: #90caf9 !important;  /* Светло-синий для иконок в темной теме */
+}
+
+/* Дополнительные стили, повторяющиеся для максимального приоритета */
+#root .MuiDrawer-paper,
+html .MuiDrawer-paper,
+body .MuiDrawer-paper {
+  background-color: #f0f0f0 !important;
+  background: #f0f0f0 !important;
+}
+
+[data-theme="dark"] #root .MuiDrawer-paper,
+[data-theme="dark"] html .MuiDrawer-paper,
+[data-theme="dark"] body .MuiDrawer-paper {
+  background-color: #1e1e1e !important;
+  background: #1e1e1e !important;
+}
+
+/* Инлайн стили для Toolbar внутри Drawer */
+.MuiDrawer-paper .MuiToolbar-root {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Sidebar styles */
+.sidebar .MuiDrawer-paper {
+  border-right: 1px solid rgba(200, 200, 200, 0.12);
+  transition: all 0.3s ease;
+}
+
+/* Light theme sidebar */
+html:not([data-theme='dark']) .sidebar .MuiDrawer-paper {
+  background: #f8f9fa;
+  color: #333;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root {
+  color: #333;
+  background-color: transparent;
+}
+
+html:not([data-theme='dark']) .sidebar .MuiListItemIcon-root {
+  color: #1976d2;
+}
+
+html:not([data-theme='dark']) .sidebar .MuiTypography-root {
+  color: #1976d2 !important;
+}
+
+html:not([data-theme='dark']) .sidebar .MuiToolbar-root .MuiTypography-root {
+  color: #1976d2 !important;
+  font-weight: bold;
+}
+
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(25, 118, 210, 0.08);
+}
+
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root.active {
+  background-color: rgba(25, 118, 210, 0.12);
+}
+
+html:not([data-theme='dark']) .sidebar * {
+  color: #333 !important;
+}
+
+/* Dark theme sidebar */
+html[data-theme='dark'] .sidebar .MuiDrawer-paper {
+  background: linear-gradient(145deg, #1c1c1c, #252525);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='dark'] .sidebar .MuiListItemButton-root {
+  margin: 8px 12px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:hover {
+  background: linear-gradient(145deg, #323232, #3a3a3a);
+  box-shadow: 0 4px 12px rgba(100, 181, 246, 0.15);
+  transform: translateY(-2px);
+  outline: none !important;
+  border: none !important;
+}
+
+html[data-theme='dark'] .sidebar .MuiListItemIcon-root {
+  color: #64b5f6;
+  min-width: 40px;
+}
+
+/* Active menu item styles */
+.sidebar .MuiListItemButton-root.active {
+  position: relative;
+  transform: translateY(-2px);
+}
+
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root.active {
+  background: linear-gradient(145deg, #e0edff, #d4e4ff);
+  box-shadow: 0 4px 12px rgba(58, 134, 255, 0.15);
+}
+
+html[data-theme='dark'] .sidebar .MuiListItemButton-root.active {
+  background: linear-gradient(145deg, #2a4975, #355990);
+  box-shadow: 0 4px 12px rgba(100, 181, 246, 0.2);
+}
+
+/* Remove blue outline on sidebar items */
+.sidebar .MuiListItemButton-root {
+  outline: none !important;
+}
+
+.sidebar .MuiButtonBase-root {
+  outline: none !important;
+}
+
+.sidebar .MuiListItemButton-root:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.sidebar .MuiListItem-root {
+  outline: none !important;
+}
+
+.sidebar * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sidebar .MuiTouchRipple-root {
+  display: none !important;
+}
+
+.sidebar .MuiListItemButton-root.active::before {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 3px;
+  background-color: rgba(100, 100, 100, 0.5) !important;
+  border-radius: 0 4px 4px 0;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active::before {
+  background-color: rgba(150, 150, 150, 0.5) !important;
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+}
+
+/* Logo area styling */
+.sidebar .MuiToolbar-root {
+  display: flex;
+  justify-content: center;
+  padding: 20px 16px;
+}
+
+.sidebar .MuiToolbar-root .MuiTypography-root {
+  font-weight: 700;
+  background: linear-gradient(45deg, #3a86ff, #64b5f6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* Add depth to the drawer */
+.sidebar .MuiDrawer-paper {
+  padding: 8px 0;
+  overflow-x: hidden;
+}
+
+/* Style the list items text */
+.sidebar .MuiListItemText-primary {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Style the logout button differently */
+.sidebar .MuiListItemButton-root:last-child {
+  margin-top: 16px;
+  border-top: 1px solid rgba(200, 200, 200, 0.12);
+  border-radius: 0;
+  padding-top: 16px;
+}
+
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:last-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:last-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:last-child:hover {
+  background: linear-gradient(145deg, #ffebee, #ffcdd2);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.1);
+}
+
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:last-child:hover {
+  background: linear-gradient(145deg, #422c2c, #513636);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.15);
+}
+
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #f44336;
+}
+
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #ef9a9a;
+}
+
+/* AppBar styles */
+.MuiAppBar-root {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+html:not([data-theme='dark']) .MuiAppBar-root {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  color: #333 !important;
+}
+
+html[data-theme='dark'] .MuiAppBar-root {
+  background: rgba(18, 18, 18, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #fff !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.MuiAppBar-root .MuiTypography-root {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Add a subtle shine effect to the welcome text */
+html:not([data-theme='dark']) .MuiAppBar-root .MuiTypography-root {
+  background: linear-gradient(45deg, #333, #555);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html[data-theme='dark'] .MuiAppBar-root .MuiTypography-root {
+  background: linear-gradient(45deg, #f0f0f0, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dashboard layout container */
+.dashboard-layout {
+  position: relative;
+}
+
+/* For small screens - add a nicer background for mobile menu button */
+@media (max-width: 600px) {
+  html:not([data-theme='dark']) .MuiAppBar-root .MuiIconButton-root {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+  }
+  
+  html[data-theme='dark'] .MuiAppBar-root .MuiIconButton-root {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+}
+
+/* Ensure no outline on any Material UI components in the sidebar */
+.sidebar .MuiDrawer-root,
+.sidebar .MuiDrawer-paper,
+.sidebar .MuiListItem-root,
+.sidebar .MuiListItemButton-root,
+.sidebar .MuiListItemIcon-root,
+.sidebar .MuiListItemText-root,
+.sidebar .MuiSvgIcon-root {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Update hover styles to completely remove blue outline */
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  box-shadow: none;
+  transform: translateY(0);
+  transition: background-color 0.3s ease;
+  outline: none !important;
+  border: none !important;
+}
+
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: none;
+  transform: translateY(0);
+  transition: background-color 0.3s ease;
+  outline: none !important;
+  border: none !important;
+}
+
+/* Simple hover style - avoid complex selectors */
+.sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  transform: translateY(0);
+  transition: background-color 0.3s ease;
+  box-shadow: none !important;
+}
+
+/* Dark theme hover */
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover state for light theme */
+body[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  transform: translateY(0);
+  transition: background-color 0.3s ease;
+  box-shadow: none !important;
+}
+
+html[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+body[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+.light-theme .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #333 !important;
+  transform: translateY(0) !important;
+  box-shadow: none !important;
+  transition: background-color 0.3s ease !important;
+}
+
+/* Remove transform/gradient from the hover state */
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  transform: translateY(0) !important;
+}
+
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  transform: translateY(0) !important;
+}
+
+/* Simplify transitions */
+.sidebar * {
+  transition: background-color 0.3s ease !important;
+  animation: none !important;
+}
+
+/* Global style to remove focus outline */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.MuiButtonBase-root:focus,
+.MuiButtonBase-root:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* More aggressive sidebar outline removal */
+.sidebar,
+.sidebar *,
+.MuiDrawer-root,
+.MuiDrawer-root *,
+.MuiDrawer-paper, 
+.MuiDrawer-paper *,
+.MuiListItem-root,
+.MuiListItemButton-root,
+.MuiButtonBase-root {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Remove all transition/animation effects that might cause flashing */
+.sidebar * {
+  transition: background-color 0.3s, transform 0.3s !important;
+  animation: none !important;
+}
+
+/* Target any possible source of outline/border on hover */
+*:hover, *:focus, *:active {
+  outline: none !important;
+}
+
+/* Override MUI default hover styles */
+.MuiButtonBase-root::before,
+.MuiButtonBase-root::after,
+.MuiListItemButton-root::before,
+.MuiListItemButton-root::after,
+.MuiListItem-root::before,
+.MuiListItem-root::after {
+  display: none !important;
+  content: "" !important;
+}
+
+/* Make any other content: none declarations safe */
+.sidebar .MuiListItemButton-root::before,
+.sidebar .MuiListItemButton-root::after,
+.sidebar .MuiButtonBase-root::before,
+.sidebar .MuiButtonBase-root::after {
+  content: "" !important;
+  display: none !important;
+}
+
+/* Override the default color change on hover */
+.sidebar .MuiListItemButton-root {
+  position: relative;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Force transparent background on non-hover state */
+.sidebar .MuiListItemButton-root:not(:hover):not(.active) {
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+/* Completely disable all ripple effects */
+.MuiTouchRipple-root {
+  display: none !important;
+}
+
+/* Add this before other sidebar styles */
+
+/* Force outlines to be transparent with !important */
+.sidebar,
+.sidebar *,
+.MuiDrawer-root,
+.MuiDrawer-root *,
+.sidebar .MuiDrawer-paper, 
+.sidebar .MuiDrawer-paper *,
+.sidebar .MuiListItem-root,
+.sidebar .MuiListItemButton-root {
+  outline-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.sidebar .MuiButtonBase-root:hover::before,
+.sidebar .MuiButtonBase-root:hover::after,
+.sidebar .MuiButtonBase-root:focus::before,
+.sidebar .MuiButtonBase-root:focus::after,
+.sidebar .MuiButtonBase-root:active::before,
+.sidebar .MuiButtonBase-root:active::after {
+  display: none !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+}
+
+/* Additional fix for blue outline */
+.sidebar .MuiListItemButton-root.active,
+.sidebar .MuiListItemButton-root:hover,
+.sidebar .MuiListItemButton-root:focus {
+  transition: transform 0.3s, background-color 0.3s !important;
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-color: transparent !important;
+}
+
+/* Override any lingering highlight colors */
+.sidebar {
+  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+}
+
+.sidebar * {
+  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+}
+
+/* Simple CSS approach to remove sidebar outlines */
+.sidebar * {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Specific fix for list items */
+.sidebar .MuiListItemButton-root {
+  outline: none !important;
+  background-color: transparent;
+}
+
+/* Simple hover style - avoid complex selectors */
+.sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Dark theme hover */
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Active items */
+.sidebar .MuiListItemButton-root.active {
+  background-color: rgba(200, 200, 200, 0.12) !important;
+  color: #555 !important;
+}
+
+.sidebar .MuiListItemButton-root.active .MuiListItemIcon-root {
+  color: #555 !important;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active {
+  background-color: rgba(100, 100, 100, 0.12) !important;
+  color: #ccc !important;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active .MuiListItemIcon-root {
+  color: #ccc !important;
+}
+
+.sidebar .MuiListItemButton-root.active::before {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: rgba(100, 100, 100, 0.5) !important;
+  border-radius: 0 4px 4px 0;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active::before {
+  background-color: rgba(150, 150, 150, 0.5) !important;
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+}
+
+/* Logout button specific styles */
+.sidebar .MuiListItemButton-root:last-child {
+  margin-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 24px;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #d32f2f;
+  opacity: 0.9;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #ef5350;
+  opacity: 0.85;
+}
+
+/* Remove all transitions and animations */
+.sidebar *,
+.sidebar .MuiDrawer-paper *,
+.MuiDrawer-root * {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Remove all outlines and highlights */
+.sidebar *:focus,
+.sidebar *:focus-visible,
+.sidebar *:focus-within,
+.sidebar *:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Remove ripple effect */
+.sidebar .MuiTouchRipple-root {
+  display: none !important;
+}
+
+/* Make sure the sidebar changes color in light mode */
+html:not([data-theme='dark']) .dashboard-layout .sidebar {
+  background: #f8f9fa;
+}
+
+html:not([data-theme='dark']) .MuiDrawer-paper {
+  background-color: #f8f9fa !important;
+}
+
+/* Light mode base styles */
+body[data-theme="light"], 
+html:not([data-theme="dark"]) body {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Fix for the light theme dashboard layout */
+body[data-theme="light"] .dashboard-layout,
+html:not([data-theme="dark"]) .dashboard-layout {
+  background-color: #f8f9fa;
+}
+
+/* Fix for sidebar in light theme */
+body[data-theme="light"] .sidebar,
+html:not([data-theme="dark"]) .sidebar {
+  background-color: #f8f9fa;
+}
+
+/* Fix for drawer paper in light theme */
+body[data-theme="light"] .sidebar .MuiDrawer-paper,
+html:not([data-theme="dark"]) .sidebar .MuiDrawer-paper {
+  background-color: #f8f9fa !important;
+  color: #333 !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Reset blue background for sidebar */
+.light-mode .sidebar,
+.light-theme.sidebar,
+.sidebar.light-theme,
+.light-mode .MuiDrawer-paper,
+html:not([data-theme="dark"]) .sidebar {
+  background-color: #f8f9fa !important;
+  background-image: none !important;
+}
+
+/* Enforce white background for drawer paper */
+.MuiDrawer-paper,
+html:not([data-theme="dark"]) .MuiDrawer-paper {
+  background-color: #f8f9fa !important;
+  color: #333;
+}
+
+/* Fix for list items in light theme */
+body[data-theme="light"] .sidebar .MuiListItemButton-root,
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root {
+  color: #333;
+  background-color: transparent;
+  border-radius: 8px;
+  margin: 4px 8px;
+}
+
+/* Hover state for light theme */
+body[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(25, 118, 210, 0.08);
+  transform: translateY(-2px);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Active state for light theme */
+body[data-theme="light"] .sidebar .MuiListItemButton-root.active,
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root.active {
+  background-color: rgba(25, 118, 210, 0.12);
+  font-weight: 500;
+}
+
+/* Default item color */
+body[data-theme="light"] .sidebar .MuiListItemIcon-root,
+html:not([data-theme="dark"]) .sidebar .MuiListItemIcon-root {
+  color: #1976d2;
+}
+
+/* CRITICAL: Force light theme styles */
+html[data-theme="light"] .sidebar,
+body[data-theme="light"] .sidebar,
+.light-theme.sidebar {
+  background-color: #f8f9fa !important;
+  background: #f8f9fa !important;
+  color: #333 !important;
+}
+
+html[data-theme="light"] .MuiDrawer-paper,
+body[data-theme="light"] .MuiDrawer-paper,
+.light-theme .MuiDrawer-paper {
+  background-color: #f8f9fa !important;
+  background: #f8f9fa !important;
+  color: #333 !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+html[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+body[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+.light-theme .MuiListItemButton-root:hover {
+  background-color: rgba(25, 118, 210, 0.08) !important;
+  color: #333 !important;
+}
+
+/* Modify light theme sidebar item styles */
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root.active {
+  background-color: rgba(25, 118, 210, 0.12);
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/* Dark theme active style */
+html[data-theme='dark'] .sidebar .MuiListItemButton-root.active {
+  background-color: rgba(144, 202, 249, 0.12);
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/* Active state for light theme */
+body[data-theme="light"] .sidebar .MuiListItemButton-root.active,
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root.active {
+  background-color: rgba(25, 118, 210, 0.12);
+  font-weight: 500;
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/* Modify all hover states consistently */
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:last-child:hover {
+  background-color: rgba(244, 67, 54, 0.08);
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:last-child:hover {
+  background-color: rgba(244, 67, 54, 0.08);
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/* Update the styles for the active indicator */
+.sidebar .MuiListItemButton-root.active::before {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 3px;
+  background-color: rgba(100, 100, 100, 0.5) !important;
+  border-radius: 0 4px 4px 0;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active::before {
+  background-color: rgba(150, 150, 150, 0.5) !important;
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+}
+
+/* Override previous styles with more specific selectors and !important */
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root.active {
+  background: rgba(25, 118, 210, 0.12) !important;
+  background-image: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] .sidebar .MuiListItemButton-root.active {
+  background: rgba(100, 100, 100, 0.12) !important;
+  background-image: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove all gradients and transforms from hover states in sidebar */
+.sidebar .MuiListItemButton-root:hover,
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root:hover,
+html[data-theme="dark"] .sidebar .MuiListItemButton-root:hover,
+body[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+.light-theme .sidebar .MuiListItemButton-root:hover {
+  background-image: none !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+  transform: none !important;
+  box-shadow: none !important;
+  transition: background-color 0.3s ease !important;
+}
+
+html[data-theme="dark"] .sidebar .MuiListItemButton-root:hover,
+html[data-theme="dark"] body .sidebar .MuiListItemButton-root:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Fix logout button hover */
+.sidebar .MuiListItemButton-root:last-child:hover,
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root:last-child:hover,
+html[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child:hover {
+  background: rgba(244, 67, 54, 0.08) !important;
+  background-image: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove all transitions and animations from sidebar elements */
+.sidebar,
+.sidebar *,
+.MuiDrawer-root,
+.MuiDrawer-paper,
+.MuiListItem-root,
+.MuiListItemButton-root,
+.MuiListItemIcon-root,
+.MuiListItemText-root {
+  transition: none !important;
+  animation: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+}
+
+/* Override any specific hover transitions */
+.sidebar .MuiListItemButton-root:hover,
+.sidebar .MuiListItemButton-root.active {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Ensure transitions are disabled on pseudo-elements too */
+.sidebar *::before,
+.sidebar *::after {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Style for layout loading placeholder */
+.layout-loading {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background-color);
+}
+
+html[data-theme="light"] .layout-loading {
+  background-color: #f8f9fa;
+}
+
+html[data-theme="dark"] .layout-loading {
+  background-color: #09090b;
+}
+
+/* Hover state for light theme - NO BLUE COLOR */
+body[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  transform: none !important;
+  transition: none !important;
+  outline: none !important;
+  color: #333 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Simple hover style - avoid complex selectors */
+.sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  transform: none !important;
+  transition: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Dark theme hover */
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Override any existing hover styles for sidebar */
+html[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+body[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+.light-theme .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #333 !important;
+  transform: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Default icon color - change from blue */
+body[data-theme="light"] .sidebar .MuiListItemIcon-root,
+html:not([data-theme="dark"]) .sidebar .MuiListItemIcon-root {
+  color: #555 !important;
+}
+
+/* Default text color - change from blue */
+html:not([data-theme='dark']) .sidebar .MuiTypography-root {
+  color: #555 !important;
+}
+
+/* Active state indicator - change from blue */
+.sidebar .MuiListItemButton-root.active::before {
+  background: #555 !important;
+  background-image: none !important;
+}
+
+/* Active state for light theme - change from blue */
+body[data-theme="light"] .sidebar .MuiListItemButton-root.active,
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root.active {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  font-weight: 500;
+  color: #555 !important;
+}
+
+/* Completely disable all CSS animations and transitions in sidebar */
+.sidebar,
+.sidebar *,
+.MuiDrawer-root,
+.MuiDrawer-paper,
+.MuiListItem-root,
+.MuiListItemButton-root,
+.MuiListItemIcon-root,
+.MuiListItemText-root {
+  transition: none !important;
+  animation: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+}
+
+/* Override logo text styling to remove gradient */
+.sidebar .MuiToolbar-root .MuiTypography-root {
+  font-weight: 700;
+  color: #555 !important;
+  background: none !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* Replace blue color on the active indicator */
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root.active::before {
+  background: #555 !important;
+  background-image: none !important;
+}
+
+/* Fix logout button - remove red hover */
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:last-child:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Reset logout icon color */
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #555 !important;
+}
+
+/* Remove all transforms */
+.sidebar .MuiListItemButton-root.active,
+.sidebar .MuiListItemButton-root:hover,
+.sidebar .MuiListItemButton-root:focus,
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root.active,
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:hover,
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root:focus,
+html[data-theme='dark'] .sidebar .MuiListItemButton-root.active,
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:hover,
+html[data-theme='dark'] .sidebar .MuiListItemButton-root:focus {
+  transform: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Fix for light theme text color - ensure no blue */
+html:not([data-theme='dark']) .sidebar .MuiListItemButton-root,
+html:not([data-theme='dark']) .sidebar .MuiListItemText-primary,
+html:not([data-theme='dark']) .sidebar .MuiTypography-root,
+html:not([data-theme='dark']) .sidebar * {
+  color: #555 !important;
+}
+
+/* Reset all previous sidebar styles */
+.sidebar .MuiDrawer-paper *,
+.MuiDrawer-paper *,
+.sidebar * {
+  all: unset;
+  box-sizing: border-box;
+}
+
+/* Base sidebar styles */
+.sidebar .MuiDrawer-paper {
+  width: 280px;
+  background: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  padding: 16px 8px;
+}
+
+[data-theme="dark"] .sidebar .MuiDrawer-paper {
+  background: #1a1a1a;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Logo styles */
+.sidebar .MuiToolbar-root {
+  padding: 20px 16px;
+  margin-bottom: 32px;
+}
+
+.sidebar .MuiToolbar-root .MuiTypography-root {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+[data-theme="dark"] .sidebar .MuiToolbar-root .MuiTypography-root {
+  color: #ffffff;
+}
+
+/* Menu item styles */
+.sidebar .MuiListItemButton-root {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 4px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #424242;
+  background: transparent;
+  position: relative;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root {
+  color: #e0e0e0;
+}
+
+/* Menu item icon */
+.sidebar .MuiListItemIcon-root {
+  min-width: 42px;
+  color: #424242;
+  opacity: 0.9;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemIcon-root {
+  color: #e0e0e0;
+  opacity: 0.85;
+}
+
+/* Menu item text */
+.sidebar .MuiListItemText-primary {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* Hover state - Light theme */
+.sidebar .MuiListItemButton-root:hover {
+  background-color: #f5f5f5;
+}
+
+/* Hover state - Dark theme */
+[data-theme="dark"] .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Active state - Light theme */
+.sidebar .MuiListItemButton-root.active {
+  background-color: #f0f7ff;
+  color: #1976d2;
+}
+
+.sidebar .MuiListItemButton-root.active .MuiListItemIcon-root {
+  color: #1976d2;
+}
+
+/* Active state - Dark theme */
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active {
+  background-color: rgba(144, 202, 249, 0.08);
+  color: #90caf9;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active .MuiListItemIcon-root {
+  color: #90caf9;
+}
+
+/* Active indicator */
+.sidebar .MuiListItemButton-root.active::before {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 3px;
+  background-color: rgba(100, 100, 100, 0.5) !important;
+  border-radius: 0 4px 4px 0;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active::before {
+  background-color: rgba(150, 150, 150, 0.5) !important;
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+}
+
+/* Logout button specific styles */
+.sidebar .MuiListItemButton-root:last-child {
+  margin-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 24px;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #d32f2f;
+  opacity: 0.9;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #ef5350;
+  opacity: 0.85;
+}
+
+/* Remove all transitions and animations */
+.sidebar *,
+.sidebar .MuiDrawer-paper *,
+.MuiDrawer-root * {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Remove all outlines and highlights */
+.sidebar *:focus,
+.sidebar *:focus-visible,
+.sidebar *:focus-within,
+.sidebar *:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Remove ripple effect */
+.sidebar .MuiTouchRipple-root {
+  display: none !important;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+  padding: 2rem 0;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.add-transaction-button {
+  background: linear-gradient(45deg, #2196f3, #1976d2) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  transition: transform 0.2s ease-in-out !important;
+}
+
+.add-transaction-button:hover {
+  transform: translateY(-2px);
+}
+
+.refresh-button {
+  color: #2196f3 !important;
+  transition: transform 0.2s ease-in-out !important;
+}
+
+.refresh-button:hover {
+  transform: rotate(180deg);
+}
+
+.refresh-button.rotating {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.welcome-section {
+  margin-bottom: 0;
+}
+
+.welcome-title {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  background: linear-gradient(45deg, #2196f3, #1976d2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .welcome-title {
+  background: linear-gradient(45deg, #90caf9, #42a5f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stats-card {
+  padding: 1.5rem;
+  height: 100%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+[data-theme="dark"] .stats-card {
+  background: linear-gradient(145deg, rgba(40, 40, 40, 0.9), rgba(30, 30, 30, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.stats-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stats-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(33, 150, 243, 0.1);
+  color: #2196f3;
+}
+
+[data-theme="dark"] .stats-card-icon {
+  background: rgba(144, 202, 249, 0.1);
+  color: #90caf9;
+}
+
+.stats-label {
+  font-size: 0.875rem !important;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 0.25rem !important;
+}
+
+[data-theme="dark"] .stats-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.stats-value {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #1976d2;
+}
+
+[data-theme="dark"] .stats-value {
+  color: #90caf9;
+}
+
+.view-details-button {
+  margin-top: 1rem !important;
+  border-color: rgba(33, 150, 243, 0.5) !important;
+  color: #2196f3 !important;
+}
+
+[data-theme="dark"] .view-details-button {
+  border-color: rgba(144, 202, 249, 0.5) !important;
+  color: #90caf9 !important;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chart-container {
+  height: calc(100% - 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-placeholder {
+  text-align: center;
+  padding: 2rem;
+}
+
+.transactions-list {
+  height: calc(100% - 3rem);
+  overflow-y: auto;
+}
+
+.transactions-placeholder {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  height: 100%;
+  background: #fff;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] .sidebar {
+  background: #1e1e1e;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sidebar .MuiToolbar-root {
+  min-height: 64px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .MuiToolbar-root .MuiTypography-root {
+  font-weight: 600;
+  background: linear-gradient(45deg, #2196f3, #1976d2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .sidebar .MuiToolbar-root .MuiTypography-root {
+  background: linear-gradient(45deg, #90caf9, #42a5f5);
+}
+
+.sidebar .MuiListItemButton-root {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 4px 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar .MuiListItemIcon-root {
+  color: rgba(0, 0, 0, 0.54);
+  min-width: 40px;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemIcon-root {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar .MuiListItemText-primary {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(25, 118, 210, 0.08);
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(144, 202, 249, 0.08);
+}
+
+.sidebar .MuiListItemButton-root.active {
+  background-color: rgba(25, 118, 210, 0.12);
+  color: #1976d2;
+}
+
+.sidebar .MuiListItemButton-root.active .MuiListItemIcon-root {
+  color: #1976d2;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active {
+  background-color: rgba(144, 202, 249, 0.12);
+  color: #90caf9;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active .MuiListItemIcon-root {
+  color: #90caf9;
+}
+
+.sidebar .MuiListItemButton-root.active::before {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: rgba(100, 100, 100, 0.5) !important;
+  border-radius: 0 4px 4px 0;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active::before {
+  background-color: rgba(150, 150, 150, 0.5) !important;
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+}
+
+.sidebar .MuiListItemButton-root:last-child {
+  margin-top: auto;
+  color: #f44336;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child {
+  color: #ef5350;
+}
+
+.sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #f44336;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #ef5350;
+}
+
+/* Dashboard Container Styles */
+.dashboard-container {
+  padding: 24px;
+  max-width: 1400px !important;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.welcome-section {
+  margin-bottom: 0;
+}
+
+.welcome-title {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  background: linear-gradient(45deg, #2196f3, #1976d2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .welcome-title {
+  background: linear-gradient(45deg, #90caf9, #42a5f5);
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.add-transaction-button {
+  background: linear-gradient(45deg, #2196f3, #1976d2) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s ease-in-out !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+}
+
+.add-transaction-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);
+}
+
+[data-theme="dark"] .add-transaction-button {
+  background: linear-gradient(45deg, #42a5f5, #1e88e5) !important;
+}
+
+.refresh-button {
+  color: #2196f3 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+[data-theme="dark"] .refresh-button {
+  color: #42a5f5 !important;
+}
+
+.refresh-button:hover {
+  transform: rotate(180deg);
+  background-color: rgba(33, 150, 243, 0.08) !important;
+}
+
+[data-theme="dark"] .refresh-button:hover {
+  background-color: rgba(144, 202, 249, 0.08) !important;
+}
+
+.refresh-button.rotating {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Stats Cards */
+.stats-card {
+  padding: 24px;
+  height: 100%;
+  transition: all 0.2s ease-in-out;
+  border-radius: 12px !important;
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+[data-theme="dark"] .stats-card {
+  background: linear-gradient(145deg, #2d2d2d, #1e1e1e);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .stats-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.stats-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stats-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(33, 150, 243, 0.12), rgba(33, 150, 243, 0.08));
+  color: #2196f3;
+}
+
+[data-theme="dark"] .stats-card-icon {
+  background: linear-gradient(135deg, rgba(144, 202, 249, 0.12), rgba(144, 202, 249, 0.08));
+  color: #42a5f5;
+}
+
+.stats-label {
+  font-size: 0.875rem !important;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 4px !important;
+}
+
+[data-theme="dark"] .stats-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.stats-value {
+  font-size: 1.75rem !important;
+  font-weight: 600 !important;
+  background: linear-gradient(45deg, #2196f3, #1976d2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .stats-value {
+  background: linear-gradient(45deg, #90caf9, #42a5f5);
+}
+
+.view-details-button {
+  margin-top: 16px !important;
+  border-color: rgba(33, 150, 243, 0.5) !important;
+  color: #2196f3 !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+[data-theme="dark"] .view-details-button {
+  border-color: rgba(144, 202, 249, 0.5) !important;
+  color: #42a5f5 !important;
+}
+
+.view-details-button:hover {
+  background-color: rgba(33, 150, 243, 0.08) !important;
+  border-color: #2196f3 !important;
+}
+
+[data-theme="dark"] .view-details-button:hover {
+  background-color: rgba(144, 202, 249, 0.08) !important;
+  border-color: #42a5f5 !important;
+}
+
+/* Chart and Transactions Sections */
+.chart-section,
+.transactions-section {
+  padding: 24px;
+  height: 400px;
+  border-radius: 12px !important;
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .chart-section,
+[data-theme="dark"] .transactions-section {
+  background: linear-gradient(145deg, #2d2d2d, #1e1e1e);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.chart-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.chart-actions .MuiButton-root {
+  text-transform: none !important;
+  font-weight: 500 !important;
+  min-width: 64px !important;
+}
+
+.chart-container {
+  height: calc(100% - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transactions-list {
+  height: calc(100% - 64px);
+  overflow-y: auto;
+}
+
+.chart-placeholder,
+.transactions-placeholder {
+  text-align: center;
+  padding: 32px;
+  color: rgba(0, 0, 0, 0.38);
+}
+
+[data-theme="dark"] .chart-placeholder,
+[data-theme="dark"] .transactions-placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+/* Fix for blue bars appearing at top and bottom of sidebar items */
+.MuiDrawer-root .MuiDrawer-paper,
+html[data-theme="light"] .MuiDrawer-root .MuiDrawer-paper,
+html[data-theme="dark"] .MuiDrawer-root .MuiDrawer-paper {
+  overflow: hidden;
+}
+
+.sidebar .MuiListItemButton-root,
+html[data-theme="light"] .sidebar .MuiListItemButton-root,
+html[data-theme="dark"] .sidebar .MuiListItemButton-root {
+  position: relative;
+  z-index: 1;
+  border-radius: 8px;
+  margin: 4px 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  overflow: visible;
+}
+
+.sidebar .MuiListItemButton-root::before,
+.sidebar .MuiListItemButton-root::after,
+html[data-theme="light"] .sidebar .MuiListItemButton-root::before,
+html[data-theme="light"] .sidebar .MuiListItemButton-root::after,
+html[data-theme="dark"] .sidebar .MuiListItemButton-root::before,
+html[data-theme="dark"] .sidebar .MuiListItemButton-root::after {
+  content: none !important;
+  display: none !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.sidebar .MuiListItemButton-root:hover,
+html[data-theme="light"] .sidebar .MuiListItemButton-root:hover,
+html[data-theme="dark"] .sidebar .MuiListItemButton-root:hover {
+  transform: translateY(-2px);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme="dark"] .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Remove any potential pseudo elements or outlines */
+.sidebar *::before,
+.sidebar *::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+/* Fix for blue highlight in sidebar */
+.sidebar, 
+.sidebar * {
+  --highlight-color: transparent !important;
+  --outline-color: transparent !important;
+  --focus-color: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Fix for blue elements in sidebar */
+.MuiDrawer-paper {
+  overflow: hidden !important;
+}
+
+.sidebar .MuiListItemButton-root {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden !important;
+}
+
+.sidebar .MuiListItemButton-root::before,
+.sidebar .MuiListItemButton-root::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Force remove all pseudo elements */
+.MuiListItem-root::before,
+.MuiListItem-root::after,
+.MuiListItemButton-root::before,
+.MuiListItemButton-root::after,
+.MuiButtonBase-root::before,
+.MuiButtonBase-root::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Remove any highlight or focus styles */
+.sidebar * {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.sidebar .MuiListItemButton-root:focus,
+.sidebar .MuiListItemButton-root:active,
+.sidebar .MuiListItemButton-root:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Override any blue colors on active items */
+.sidebar .MuiListItemButton-root.active::before {
+  background-color: transparent !important;
+  display: none !important;
+}
+
+/* Reset all transitions to avoid animation glitches */
+.sidebar .MuiListItemButton-root {
+  transition: background-color 0.2s ease !important;
+}
+
+/* Ensure buttons don't have any unwanted styling */
+.sidebar .MuiButtonBase-root {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ... existing code ... */
+
+/* Fixes for sidebar/drawer blue elements */
+.MuiDrawer-root .MuiListItemButton-root {
+  position: relative;
+  z-index: 1;
+}
+
+.MuiDrawer-root .MuiListItemButton-root::before,
+.MuiDrawer-root .MuiListItemButton-root::after,
+.MuiDrawer-root .MuiMenuItem-root::before,
+.MuiDrawer-root .MuiMenuItem-root::after,
+.MuiDrawer-root .MuiTreeItem-root::before,
+.MuiDrawer-root .MuiTreeItem-root::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.MuiDrawer-root .MuiList-root {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.MuiDrawer-root .MuiListItem-root,
+.MuiDrawer-root .MuiListItemButton-root {
+  margin: 4px 0;
+}
+
+/* Remove blue indicators and ripple effects */
+.MuiDrawer-root .MuiTouchRipple-root,
+.MuiDrawer-root .MuiTouchRipple-ripple,
+.MuiDrawer-root .MuiButtonBase-root::after,
+.MuiDrawer-root .MuiButtonBase-root::before {
+  display: none !important;
+  background: transparent !important;
+  color: transparent !important;
+}
+
+/* Force remove any blue elements that might be added by Material UI */
+.MuiDrawer-root [class*="Mui"]::before,
+.MuiDrawer-root [class*="Mui"]::after {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Ensure active menu items don't have blue indicators */
+.MuiDrawer-root .active::before,
+.MuiDrawer-root .active::after,
+.MuiDrawer-root .Mui-selected::before,
+.MuiDrawer-root .Mui-selected::after {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  display: none !important;
+  content: none !important;
+}
+
+/* ... existing code ... */
+
+/* Complete sidebar fixes - force remove all blue elements */
+.MuiDrawer-root .MuiListItemButton-root::before,
+.MuiDrawer-root .MuiListItemButton-root::after,
+.sidebar .MuiListItemButton-root::before,
+.sidebar .MuiListItemButton-root::after {
+  display: none !important;
+  opacity: 0 !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.MuiDrawer-root .MuiButtonBase-root,
+.sidebar .MuiButtonBase-root {
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+.MuiDrawer-root .MuiListItemButton-root:hover,
+.sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #555 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+[data-theme="dark"] .MuiDrawer-root .MuiListItemButton-root:hover,
+[data-theme="dark"] .sidebar .MuiListItemButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #e0e0e0 !important;
+}
+
+.MuiDrawer-root .MuiListItemButton-root.active .MuiListItemIcon-root,
+.sidebar .MuiListItemButton-root.active .MuiListItemIcon-root {
+  color: #555 !important;
+}
+
+[data-theme="dark"] .MuiDrawer-root .MuiListItemButton-root.active .MuiListItemIcon-root,
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active .MuiListItemIcon-root {
+  color: #e0e0e0 !important;
+}
+
+.MuiDrawer-root .MuiListItemButton-root,
+.sidebar .MuiListItemButton-root {
+  margin: 4px 8px !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+}
+
+/* Fix for logout button */
+.MuiDrawer-root .MuiListItemButton-root:last-child .MuiListItemIcon-root,
+.sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #d32f2f !important;
+}
+
+[data-theme="dark"] .MuiDrawer-root .MuiListItemButton-root:last-child .MuiListItemIcon-root,
+[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #f44336 !important;
+}
+
+/* ... existing code ... */
+
+/* Active menu item styling */
+.MuiDrawer-root .MuiListItemButton-root.active,
+.sidebar .MuiListItemButton-root.active {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  font-weight: 500 !important;
+  color: #555 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
+[data-theme="dark"] .MuiDrawer-root .MuiListItemButton-root.active,
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #e0e0e0 !important;
+}
+
+.MuiDrawer-root .MuiListItemButton-root.active .MuiListItemText-primary,
+.sidebar .MuiListItemButton-root.active .MuiListItemText-primary {
+  font-weight: 500 !important;
+  color: #555 !important;
+}
+
+[data-theme="dark"] .MuiDrawer-root .MuiListItemButton-root.active .MuiListItemText-primary,
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active .MuiListItemText-primary {
+  color: #e0e0e0 !important;
+}
+
+/* Remove all focus indicators */
+.MuiDrawer-root .MuiButtonBase-root:focus,
+.MuiDrawer-root .MuiButtonBase-root:focus-visible,
+.sidebar .MuiButtonBase-root:focus,
+.sidebar .MuiButtonBase-root:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* ... existing code ... */
+
+/* Dashboard styles */
+.dashboard-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+.balance-card {
+  background: linear-gradient(135deg, #f5f7fa, #e4ecff) !important;
+  color: #333 !important;
+}
+
+.income-card {
+  background: linear-gradient(135deg, #f0fff4, #c6f6d5) !important;
+  color: #333 !important;
+}
+
+.expense-card {
+  background: linear-gradient(135deg, #fff5f5, #fed7d7) !important;
+  color: #333 !important;
+}
+
+.dashboard-card h6 {
+  opacity: 0.8;
+  font-weight: 500 !important;
+  margin-bottom: 8px !important;
+}
+
+.dashboard-card h4 {
+  font-weight: 600 !important;
+  font-size: 1.8rem !important;
+}
+
+.overview-card {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Dark theme dashboard styles */
+[data-theme="dark"] .balance-card {
+  background: linear-gradient(135deg, #222533, #171a29) !important;
+  color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .income-card {
+  background: linear-gradient(135deg, #132814, #1b3520) !important;
+  color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .expense-card {
+  background: linear-gradient(135deg, #331414, #2b1111) !important;
+  color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .overview-card {
+  background: #1e1e2d !important;
+  color: #e0e0e0 !important;
+}
+
+/* ... existing code ... */
+
+/* Welcome section styles */
+.welcome-section {
+  margin-bottom: 1.5rem;
+}
+
+.welcome-title {
+  font-weight: 600 !important;
+  background: linear-gradient(90deg, #333 0%, #555 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  letter-spacing: -0.5px;
+}
+
+[data-theme="dark"] .welcome-title {
+  background: linear-gradient(90deg, #e0e0e0 0%, #b0b0b0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+}
+
+.refresh-button {
+  color: #555 !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+
+.refresh-button:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  transform: rotate(30deg);
+}
+
+[data-theme="dark"] .refresh-button {
+  color: #b0b0b0 !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .refresh-button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.refresh-button.rotating {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Chart and transactions placeholders */
+.chart-placeholder,
+.transactions-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 1rem;
+  text-align: center;
+  color: #666;
+}
+
+[data-theme="dark"] .chart-placeholder,
+[data-theme="dark"] .transactions-placeholder {
+  background: rgba(255, 255, 255, 0.05);
+  color: #999;
+}
+
+/* ... existing code ... */
+
+/* Полное удаление синих элементов из сайдбара */
+.MuiDrawer-root, 
+.sidebar, 
+.MuiDrawer-paper,
+.MuiDrawer-root .MuiButtonBase-root,
+.MuiDrawer-root .MuiListItemButton-root,
+.sidebar .MuiButtonBase-root,
+.sidebar .MuiListItemButton-root {
+  position: relative;
+}
+
+/* Удаление всех псевдоэлементов, которые могут создавать синие вставки */
+.MuiDrawer-root *::before,
+.MuiDrawer-root *::after,
+.sidebar *::before,
+.sidebar *::after,
+.MuiButtonBase-root::before,
+.MuiButtonBase-root::after,
+.MuiListItemButton-root::before,
+.MuiListItemButton-root::after,
+.MuiListItem-root::before,
+.MuiListItem-root::after {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  content: none !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Удаление синих границ и теней */
+.MuiDrawer-root, 
+.sidebar,
+.MuiDrawer-paper,
+.MuiDrawer-root .MuiButtonBase-root,
+.MuiDrawer-root .MuiListItemButton-root,
+.sidebar .MuiButtonBase-root,
+.sidebar .MuiListItemButton-root {
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Отмена синих контуров при фокусе */
+.MuiDrawer-root .MuiButtonBase-root:focus-visible,
+.sidebar .MuiButtonBase-root:focus-visible,
+.MuiListItemButton-root:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Стили списка и элементов, убирающие все синие элементы */
+.sidebar .MuiList-root,
+.MuiDrawer-paper .MuiList-root {
+  padding: 8px 0;
+  overflow: hidden;
+  background-color: transparent !important;
+}
+
+/* Стиль для активного элемента без синих акцентов */
+.MuiDrawer-root .MuiListItemButton-root.active::before,
+.sidebar .MuiListItemButton-root.active::before {
+  display: none !important;
+}
+
+/* Пресечение всех синих границ и теней при наведении */
+.MuiDrawer-root .MuiListItemButton-root:hover,
+.sidebar .MuiListItemButton-root:hover {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Удаление синих полос слева от пунктов меню */
+.sidebar::before,
+.sidebar .MuiListItem-root::before,
+.sidebar .MuiListItemButton-root::before,
+.MuiDrawer-paper::before,
+.MuiDrawer-paper .MuiListItem-root::before,
+.MuiDrawer-paper .MuiListItemButton-root::before,
+.MuiDrawer-root::before,
+.MuiDrawer-root .MuiListItem-root::before,
+.MuiDrawer-root .MuiListItemButton-root::before {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  right: auto !important;
+}
+
+/* ... existing code ... */
+
+/* ... existing code ... */
+
+/* Фикс для синего фокуса и синих теней по умолчанию */
+*:focus,
+*:focus-visible,
+*:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Фикс для отображения иконок в списке */
+.sidebar .MuiListItemIcon-root,
+.MuiDrawer-root .MuiListItemIcon-root {
+  color: #555 !important;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemIcon-root,
+[data-theme="dark"] .MuiDrawer-root .MuiListItemIcon-root {
+  color: #aaa !important;
+}
+
+/* Исправление для логаут иконки */
+.sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root,
+.MuiDrawer-root .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #d32f2f !important;
+}
+
+/* Важный фикс: предотвращение любых синих анимаций при загрузке */
+html, body, #__next, .MuiButtonBase-root {
+  --mui-palette-primary-main: #717171 !important;
+  --mui-palette-primary-light: #A5A5A5 !important;
+  --mui-palette-primary-dark: #555555 !important;
+}
+
+/* Для предотвращения синего акцента при переходе между страницами */
+.MuiTouchRipple-root {
+  display: none !important;
+}
+
+/* ... existing code ... */
+
+/* Стили для карточек бюджетов */
+.budget-card {
+  border-radius: 14px !important;
+  padding: 20px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.budget-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.budget-card h6 {
+  font-weight: 600 !important;
+  margin-bottom: 12px !important;
+  font-size: 1.1rem !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Стилизация категории */
+.budget-category-indicator {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.budget-category-dot {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  margin-right: 8px !important;
+  transition: transform 0.2s ease;
+}
+
+.budget-card:hover .budget-category-dot {
+  transform: scale(1.2);
+}
+
+.budget-category-name {
+  font-size: 0.85rem !important;
+  opacity: 0.8;
+  font-weight: 500 !important;
+}
+
+/* Стили для прогресс-бара */
+.budget-progress {
+  height: 10px !important;
+  border-radius: 10px !important;
+  margin: 12px 0 !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  overflow: hidden;
+}
+
+.budget-progress .MuiLinearProgress-bar {
+  border-radius: 10px !important;
+  transition: width 1s ease-in-out !important;
+}
+
+/* Стили для чипа с периодом */
+.budget-period-chip {
+  border-radius: 20px !important;
+  font-size: 0.75rem !important;
+  height: 24px !important;
+  font-weight: 500 !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #555 !important;
+  padding: 0 10px !important;
+  margin-top: 4px !important;
+}
+
+/* Стилизация информации о бюджете */
+.budget-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.budget-info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.budget-info-label {
+  font-size: 0.7rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.6;
+  margin-bottom: 4px !important;
+}
+
+.budget-info-value {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+}
+
+.budget-info-value.spent {
+  color: #2e7d32;
+}
+
+.budget-info-value.budget {
+  color: #1976d2;
+}
+
+.budget-info-progress {
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.budget-progress-success {
+  color: #2e7d32 !important;
+}
+
+.budget-progress-warning {
+  color: #ed6c02 !important;
+}
+
+.budget-progress-error {
+  color: #d32f2f !important;
+}
+
+/* Стили для кнопок действий */
+.budget-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.budget-card:hover .budget-actions {
+  opacity: 1;
+}
+
+.budget-actions button {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(4px);
+  margin-left: 4px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.budget-actions button:hover {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Стили для темной темы */
+[data-theme="dark"] .budget-card {
+  background-color: #1e1e2d !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="dark"] .budget-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .budget-progress {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .budget-period-chip {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ddd !important;
+}
+
+[data-theme="dark"] .budget-info-value.spent {
+  color: #4caf50;
+}
+
+[data-theme="dark"] .budget-info-value.budget {
+  color: #64b5f6;
+}
+
+[data-theme="dark"] .budget-info-progress {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .budget-actions button {
+  background-color: rgba(30, 30, 45, 0.8) !important;
+}
+
+[data-theme="dark"] .budget-actions button:hover {
+  background-color: rgba(40, 40, 55, 0.95) !important;
+}
+
+/* ... existing code ... */
+
+/* Общие стили для центрирования контента */
+.content-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* Стили для страницы категорий */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.category-card {
+  height: 100%;
+  min-height: 100px;
+  transition: all 0.3s ease;
+  border-radius: 14px !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Стили для страницы аккаунтов */
+.accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.account-card {
+  height: 100%;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.account-card .actions-container {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.account-card:hover .actions-container {
+  opacity: 1;
+}
+
+/* Стили для страницы транзакций */
+.transactions-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+[data-theme="dark"] .transactions-container {
+  background-color: #1e1e2d;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.transactions-table {
+  min-width: 650px;
+  margin: 0 auto;
+}
+
+.transactions-table .MuiTableCell-head {
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .transactions-table .MuiTableCell-head {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.transaction-type-chip {
+  font-weight: 500 !important;
+  min-width: 80px;
+  justify-content: center;
+}
+
+.transaction-type-chip.income {
+  background-color: rgba(46, 125, 50, 0.1) !important;
+  color: #2e7d32 !important;
+}
+
+.transaction-type-chip.expense {
+  background-color: rgba(211, 47, 47, 0.1) !important;
+  color: #d32f2f !important;
+}
+
+.transaction-type-chip.transfer {
+  background-color: rgba(25, 118, 210, 0.1) !important;
+  color: #1976d2 !important;
+}
+
+.transaction-amount {
+  font-weight: 600 !important;
+  text-align: right !important;
+}
+
+.transaction-amount.income {
+  color: #2e7d32 !important;
+}
+
+.transaction-amount.expense {
+  color: #d32f2f !important;
+}
+
+.transaction-amount.transfer {
+  color: #1976d2 !important;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .pagination-container {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Стили для таблицы операций */
+.table-header-cell {
+  font-weight: 600 !important;
+  color: #555 !important;
+}
+
+[data-theme="dark"] .table-header-cell {
+  color: #ddd !important;
+}
+
+.category-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Общие стили для страниц */
+.page-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 8px;
+}
+
+.add-button {
+  border-radius: 30px !important;
+  padding: 8px 20px !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.add-button:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .add-button {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .add-button:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ... existing code ... */
+
+/* Улучшенный стиль контейнера для центрирования */
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Центрирование заголовков страниц */
+.page-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-direction: column;
+  text-align: center;
+  gap: 16px;
+  padding: 0;
+}
+
+.page-title-container .MuiTypography-h4 {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.add-button {
+  border-radius: 30px !important;
+  padding: 8px 24px !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+  min-width: 160px !important;
+}
+
+/* Центрирование сеток для карточек */
+.categories-grid, .accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Стили для контейнера настроек */
+.settings-container {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.settings-section {
+  margin-bottom: 24px;
+  border-radius: 12px;
+}
+
+/* Стили таблицы транзакций */
+.transactions-container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Стиль для карточек бюджетов */
+.budgets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ... existing code ... */
+
+/* Main Content Area Styles */
+.content-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.page-title-container {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.page-title-container h4 {
+  font-weight: 700 !important;
+  position: relative;
+  display: inline-block;
+}
+
+.page-title-container h4::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+  border-radius: 2px;
+}
+
+/* Dashboard specific styles */
+.welcome-section {
+  margin-bottom: 32px !important;
+}
+
+.welcome-title {
+  font-weight: 700 !important;
+  background: linear-gradient(90deg, #121212, #555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+[data-theme="dark"] .welcome-title {
+  background: linear-gradient(90deg, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dashboard-card {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07) !important;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  height: 100%;
+  padding: 24px !important;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dashboard-card h6 {
+  font-weight: 500 !important;
+  opacity: 0.7;
+  margin-bottom: 12px !important;
+}
+
+.dashboard-card h4 {
+  font-weight: 700 !important;
+  font-size: 2rem !important;
+}
+
+.balance-card {
+  background: linear-gradient(135deg, #f5f7fa, #e4e7eb) !important;
+}
+
+.income-card {
+  background: linear-gradient(135deg, #e6f7ee, #cff4d2) !important;
+}
+
+.income-card h4 {
+  color: #2e7d32;
+}
+
+.expense-card {
+  background: linear-gradient(135deg, #fff5f5, #ffe3e3) !important;
+}
+
+.expense-card h4 {
+  color: #d32f2f;
+}
+
+.overview-card {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+  padding: 24px !important;
+  margin-bottom: 24px;
+}
+
+.section-header {
+  margin-bottom: 16px !important;
+  font-weight: 600 !important;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.chart-container, .transactions-list {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-placeholder, .transactions-placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.refresh-button {
+  background-color: #f5f5f5 !important;
+  transition: all 0.3s ease !important;
+}
+
+.refresh-button:hover {
+  background-color: #e0e0e0 !important;
+}
+
+.refresh-button.rotating svg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] .dashboard-card {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="dark"] .dashboard-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .balance-card {
+  background: linear-gradient(135deg, #2d3748, #1a202c) !important;
+}
+
+[data-theme="dark"] .income-card {
+  background: linear-gradient(135deg, #1e3a2f, #132a1c) !important;
+}
+
+[data-theme="dark"] .expense-card {
+  background: linear-gradient(135deg, #3b2b2b, #2c1e1e) !important;
+}
+
+[data-theme="dark"] .overview-card {
+  background-color: #1e1e2d !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="dark"] .section-header::after {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .chart-placeholder,
+[data-theme="dark"] .transactions-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .refresh-button {
+  background-color: #2a2a3a !important;
+}
+
+[data-theme="dark"] .refresh-button:hover {
+  background-color: #353545 !important;
+}
+
+/* ... existing code ... */
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .welcome-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .welcome-title {
+    font-size: 1.8rem !important;
+  }
+
+  .page-title-container {
+    width: 100%;
+  }
+
+  .dashboard-card {
+    padding: 16px !important;
+  }
+
+  .dashboard-card h4 {
+    font-size: 1.5rem !important;
+  }
+
+  .content-container {
+    padding: 0 16px;
+  }
+
+  .overview-card {
+    padding: 16px !important;
+  }
+
+  .section-header {
+    font-size: 1.2rem !important;
+  }
+
+  .chart-container, .transactions-list {
+    min-height: 150px;
+  }
+}
+
+/* Mobile + Tablet layout improvements */
+@media (max-width: 960px) {
+  .settings-section {
+    padding: 16px !important;
+  }
+
+  .settings-section-header {
+    margin-bottom: 16px !important;
+  }
+
+  .settings-section-content {
+    padding: 0 !important;
+  }
+
+  /* Improve form elements on mobile */
+  .MuiTextField-root, .MuiSelect-root {
+    width: 100% !important;
+  }
+
+  /* Improve card spacing on mobile */
+  .categories-grid, .accounts-grid {
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* ... existing code ... */
+
+/* ... existing code ... */
+
+/* Main content area */
+.main-content {
+  transition: background-color 0.3s ease;
+}
+
+/* Consistent spacing and transitions */
+.page-container {
+  padding: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode scrollbar */
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Empty state styling */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.02);
+  margin: 16px 0;
+}
+
+.empty-state-icon {
+  font-size: 64px !important;
+  color: rgba(0, 0, 0, 0.2);
+  margin-bottom: 16px;
+}
+
+.empty-state-title {
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+}
+
+.empty-state-description {
+  max-width: 400px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 16px !important;
+}
+
+/* Dark mode empty state */
+[data-theme="dark"] .empty-state {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .empty-state-icon {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .empty-state-description {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Loading state styles */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.loading-text {
+  margin-left: 16px !important;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .loading-text {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* Main content container */
+.content-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .content-container {
+    padding: 0 12px;
+  }
+}
+
+
+/* Fixed centered layout for all pages */
+.content-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+/* Page title container styling for better alignment */
+.page-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+/* Table container for transactions */
+.transactions-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  margin: 0 auto;
+  width: 100%;
+}
+
+[data-theme="dark"] .transactions-container {
+  background-color: #1e1e2d;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Make tables responsive and centered */
+.MuiTable-root {
+  min-width: 100%;
+  width: 100%;
+}
+
+/* Categories grid and other grid layouts */
+.categories-grid, 
+.accounts-grid,
+.budgets-grid {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.categories-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .page-title-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .content-container {
+    padding: 0 12px;
+  }
+}
+
+
+/* Budgets grid layout */
+.budgets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .budgets-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* Add or update theme-specific styles for selects and dropdowns */
+
+/* ... previous styles ... */
+
+/* Theme-specific styling for the theme selector page */
+.dark-theme .MuiPaper-root {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .MuiPaper-root {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Currency and setting select dropdown styling */
+.light-theme .MuiSelect-select {
+  color: #333333;
+}
+
+.dark-theme .MuiSelect-select {
+  color: #ffffff;
+}
+
+.light-theme .MuiMenuItem-root {
+  color: #333333;
+}
+
+.dark-theme .MuiMenuItem-root {
+  color: #ffffff;
+}
+
+/* Improve dropdown menu appearance */
+.MuiPopover-paper {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.dark-theme .MuiPopover-paper {
+  background-color: #2a2a2a !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.light-theme .MuiPopover-paper {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Fix for blue outline on select focus in both themes */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(150, 150, 150, 0.5) !important;
+  border-width: 1px !important;
+}
+
+.dark-theme .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(200, 200, 200, 0.5) !important;
+}
+
+.light-theme .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(100, 100, 100, 0.5) !important;
+}
+
+/* Specific improvements for settings page */
+.settings-container .MuiPaper-root {
+  transition: all 0.3s ease;
+}
+
+/* Fix theme-specific label colors */
+.light-theme .MuiInputLabel-root {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.dark-theme .MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Make sure focus indicators are theme-appropriate */
+.light-theme .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-theme .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Consistent layout styling for settings containers */
+.settings-container .MuiPaper-root {
+  border-radius: 12px !important;
+  margin-bottom: 1.5rem !important;
+  border: 1px solid transparent !important;
+}
+
+.dark-theme .settings-container .MuiPaper-root {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.light-theme .settings-container .MuiPaper-root {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Remove blue highlight on radio buttons */
+.MuiRadio-root.Mui-checked {
+  color: rgba(100, 100, 100, 0.9) !important;
+}
+
+.dark-theme .MuiRadio-root.Mui-checked {
+  color: rgba(200, 200, 200, 0.9) !important;
+}
+
+/* Fix for blue highlight on hover */
+.MuiButtonBase-root:hover {
+  background-color: rgba(150, 150, 150, 0.1) !important;
+}
+
+.dark-theme .MuiButtonBase-root:hover {
+  background-color: rgba(200, 200, 200, 0.1) !important;
+}
+
+.light-theme .MuiButtonBase-root:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ... more styles ... */

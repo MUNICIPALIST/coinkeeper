@@ -1,0 +1,452 @@
+/* Settings page styles */
+
+/* Settings container */
+.settings-container {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Settings section */
+.settings-section {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  border: 1px solid var(--card-border);
+}
+
+[data-theme="light"] .settings-section {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .settings-section:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .settings-section {
+  background: linear-gradient(145deg, #1e1e1e, #222222);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .settings-section:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.settings-header {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.settings-header-icon {
+  color: var(--primary-color);
+  margin-right: 16px;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(46, 123, 255, 0.1);
+}
+
+[data-theme="light"] .settings-header-icon {
+  box-shadow: 0 4px 8px rgba(46, 123, 255, 0.15);
+}
+
+[data-theme="dark"] .settings-header-icon {
+  box-shadow: 0 4px 8px rgba(94, 156, 255, 0.15);
+}
+
+.settings-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.settings-content {
+  padding: 24px;
+}
+
+/* Theme toggle */
+.theme-toggle-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.theme-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .theme-option {
+  background-color: #f8f9fa;
+}
+
+[data-theme="dark"] .theme-option {
+  background-color: #252525;
+}
+
+.theme-option:hover {
+  transform: translateY(-3px);
+}
+
+.theme-option.selected {
+  border-color: var(--primary-color);
+}
+
+[data-theme="light"] .theme-option.selected {
+  background-color: rgba(46, 123, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(46, 123, 255, 0.1);
+}
+
+[data-theme="dark"] .theme-option.selected {
+  background-color: rgba(94, 156, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.theme-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+}
+
+.theme-option.selected .theme-icon {
+  color: var(--primary-color);
+}
+
+.theme-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.theme-option.selected .theme-label {
+  color: var(--primary-color);
+}
+
+/* Settings form groups */
+.settings-form-group {
+  margin-bottom: 24px;
+}
+
+.settings-form-group:last-child {
+  margin-bottom: 0;
+}
+
+.settings-form-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.settings-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+/* Currency selector */
+.currency-selector {
+  width: 100%;
+}
+
+.currency-selector .MuiOutlinedInput-root {
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  border-color: var(--input-border);
+}
+
+.currency-selector .MuiOutlinedInput-root.Mui-focused {
+  border-color: var(--primary-color);
+}
+
+.currency-selector .MuiOutlinedInput-notchedOutline {
+  border-color: var(--input-border);
+}
+
+.currency-selector .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary-color);
+}
+
+.currency-selector .MuiSelect-select {
+  padding: 12px 16px;
+}
+
+.currency-option {
+  display: flex;
+  align-items: center;
+}
+
+.currency-code {
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.currency-name {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Password form */
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field .MuiOutlinedInput-root {
+  border-radius: 8px;
+  background-color: var(--input-bg);
+}
+
+.password-field .MuiOutlinedInput-notchedOutline {
+  border-color: var(--input-border);
+}
+
+.password-field .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary-color);
+}
+
+.password-field .MuiInputLabel-root {
+  color: var(--text-secondary);
+}
+
+.password-field .MuiInputLabel-root.Mui-focused {
+  color: var(--primary-color);
+}
+
+.password-field .MuiOutlinedInput-input {
+  padding: 12px 16px;
+}
+
+.password-strength {
+  margin-top: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--divider-color);
+  overflow: hidden;
+}
+
+.password-strength-indicator {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.password-strength-text {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.password-strength-text .strength-icon {
+  margin-right: 4px;
+  font-size: 1rem;
+}
+
+/* Password strength levels */
+.password-strength-weak .password-strength-indicator {
+  width: 25%;
+  background-color: var(--danger-color);
+}
+
+.password-strength-fair .password-strength-indicator {
+  width: 50%;
+  background-color: var(--warning-color);
+}
+
+.password-strength-good .password-strength-indicator {
+  width: 75%;
+  background-color: var(--info-color);
+}
+
+.password-strength-strong .password-strength-indicator {
+  width: 100%;
+  background-color: var(--success-color);
+}
+
+/* Button styles */
+.settings-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+
+.settings-primary-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.settings-primary-button:hover {
+  background-color: var(--primary-color-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 123, 255, 0.3);
+}
+
+.settings-cancel-button {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--divider-color);
+}
+
+.settings-cancel-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .settings-cancel-button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Language selector */
+.language-option {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 8px;
+  border: 2px solid transparent;
+}
+
+.language-option:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.language-option.selected {
+  border-color: var(--primary-color);
+  background-color: rgba(46, 123, 255, 0.1);
+}
+
+.language-flag {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.language-name {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Notification settings */
+.notification-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.notification-option:last-child {
+  border-bottom: none;
+}
+
+.notification-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-name {
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.notification-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Switch styles */
+.settings-switch.MuiSwitch-root {
+  width: 46px;
+  height: 28px;
+  padding: 0;
+}
+
+.settings-switch .MuiSwitch-switchBase {
+  padding: 4px;
+}
+
+.settings-switch .MuiSwitch-thumb {
+  width: 20px;
+  height: 20px;
+}
+
+.settings-switch .MuiSwitch-track {
+  border-radius: 14px;
+  opacity: 0.3;
+}
+
+.settings-switch.Mui-checked + .MuiSwitch-track {
+  opacity: 0.6;
+}
+
+.settings-switch.Mui-checked .MuiSwitch-thumb {
+  background-color: var(--primary-color);
+}
+
+.settings-switch.Mui-checked + .MuiSwitch-track {
+  background-color: var(--primary-color);
+}
+
+/* Account section */
+.account-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.account-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-right: 16px;
+  box-shadow: 0 4px 12px rgba(46, 123, 255, 0.2);
+}
+
+.account-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.account-email {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+} 

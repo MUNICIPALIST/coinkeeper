@@ -1,0 +1,40 @@
+/* [project]/src/app/index.css [app-client] (css) */
+.sidebar .MuiListItemButton-root, .sidebar .MuiButtonBase-root {
+  z-index: 1;
+  position: relative;
+}
+
+.sidebar .MuiListItemButton-root:before {
+  content: "";
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+  position: absolute;
+  inset: 0;
+}
+
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root:hover:before {
+  opacity: 1;
+  background: linear-gradient(145deg, #e6e9f4, #f0f7ff);
+}
+
+html[data-theme="dark"] .sidebar .MuiListItemButton-root:hover:before {
+  opacity: 1;
+  background: linear-gradient(145deg, #2a2a2a, #353535);
+}
+
+.sidebar .MuiListItemButton-root, .sidebar .MuiButtonBase-root, .sidebar .MuiListItemButton-root:hover, .sidebar .MuiButtonBase-root:hover, .sidebar .MuiListItemButton-root:focus, .sidebar .MuiButtonBase-root:focus, .sidebar .MuiListItemButton-root:active, .sidebar .MuiButtonBase-root:active {
+  background-color: #0000 !important;
+  background-image: none !important;
+}
+
+.sidebar .MuiListItemButton-root {
+  background: none !important;
+}
+
+.MuiTouchRipple-root {
+  display: none !important;
+}
+
+/*# sourceMappingURL=src_app_index_css_f9ee138c._.single.css.map*/

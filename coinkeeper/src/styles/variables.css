@@ -1,0 +1,68 @@
+/* CSS variables for theming */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  
+  /* Light theme variables */
+  --primary-color: #1976d2;
+  --secondary-color: #dc004e;
+  --background-color: #ffffff;
+  --background-alt-color: #f7f7f7;
+  --paper-color: #ffffff;
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --divider-color: rgba(0, 0, 0, 0.12);
+  --error-color: #f44336;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  
+  /* Sidebar specific */
+  --sidebar-bg: #f8f9fa;
+  --sidebar-item-hover: rgba(25, 118, 210, 0.08);
+  --sidebar-item-active: rgba(25, 118, 210, 0.12);
+  --sidebar-text: #333;
+  --sidebar-icon: #1976d2;
+  --sidebar-border: rgba(0, 0, 0, 0.08);
+}
+
+/* Dark theme */
+html[data-theme="dark"], .dark-theme {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10;
+  --background-end-rgb: 0, 0, 0;
+  
+  /* Dark theme variables */
+  --primary-color: #90caf9;
+  --secondary-color: #f48fb1;
+  --background-color: #121212; /* Глубокий черный для основного фона */
+  --background-alt-color: #121212;
+  --paper-color: #1e1e1e; /* Немного светлее для карточек */
+  --text-primary: rgba(255, 255, 255, 0.87);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --divider-color: rgba(255, 255, 255, 0.12);
+  --error-color: #f44336;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Единая тень для карточек */
+  --card-border: 1px solid rgba(255, 255, 255, 0.08); /* Единая граница */
+  --primary-color-rgb: 144, 202, 249;
+  
+  /* Sidebar specific */
+  --sidebar-bg: #1c1c1c;
+  --sidebar-item-hover: rgba(255, 255, 255, 0.08);
+  --sidebar-item-active: rgba(144, 202, 249, 0.12);
+  --sidebar-text: rgba(255, 255, 255, 0.87);
+  --sidebar-icon: #64b5f6;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+}
+
+/* System theme */
+@media (prefers-color-scheme: dark) {
+  .system-theme {
+    color-scheme: dark;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 10, 10, 10;
+    --background-end-rgb: 0, 0, 0;
+  }
+} 

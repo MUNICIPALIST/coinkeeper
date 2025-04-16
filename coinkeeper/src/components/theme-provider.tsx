@@ -1,0 +1,1 @@
+// This file is no longer needed as we've moved functionality to /providers/theme-provider.tsx 

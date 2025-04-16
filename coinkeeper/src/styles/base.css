@@ -1,0 +1,242 @@
+/* Base CSS variables and theme settings */
+:root {
+  /* Base colors */
+  --primary-color: #2e7bff;
+  --primary-color-light: #5e9cff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --success-color-light: #48c765;
+  --danger-color: #dc3545;
+  --danger-color-light: #ef5b6a;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  
+  /* Light theme variables */
+  --bg-light: #f8f9fa;
+  --bg-light-secondary: #ffffff;
+  --text-primary-light: #333333;
+  --text-secondary-light: #6c757d;
+  --divider-light: #e9ecef;
+  --card-border-light: #e9ecef;
+  --input-bg-light: #ffffff;
+  --input-border-light: #ced4da;
+  --input-border-hover-light: #adb5bd;
+  --button-hover-bg-light: #f0f0f0;
+  --settings-header-bg-light: #f8f9fa;
+  --settings-content-bg-light: #ffffff;
+  --switch-track-bg-light: #e0e0e0;
+  --switch-thumb-bg-light: #ffffff;
+  --auth-bg-light: #f8f9fa;
+  
+  /* Dark theme variables */
+  --bg-dark: #121212;
+  --bg-dark-secondary: #1e1e1e;
+  --text-primary-dark: #e0e0e0;
+  --text-secondary-dark: #adb5bd;
+  --divider-dark: #2d2d2d;
+  --card-border-dark: #2d2d2d;
+  --input-bg-dark: #2c2c2c;
+  --input-border-dark: #3d3d3d;
+  --input-border-hover-dark: #4d4d4d;
+  --button-hover-bg-dark: #252525;
+  --settings-header-bg-dark: #1a1a1a;
+  --settings-content-bg-dark: #252525;
+  --switch-track-bg-dark: #3d3d3d;
+  --switch-thumb-bg-dark: #757575;
+  --auth-bg-dark: #121212;
+  
+  /* Default theme (light) */
+  --bg-primary: var(--bg-light);
+  --bg-secondary: var(--bg-light-secondary);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --divider-color: var(--divider-light);
+  --card-border: var(--card-border-light);
+  --input-bg: var(--input-bg-light);
+  --input-border: var(--input-border-light);
+  --input-border-hover: var(--input-border-hover-light);
+  --button-hover-bg: var(--button-hover-bg-light);
+  --settings-header-bg: var(--settings-header-bg-light);
+  --settings-content-bg: var(--settings-content-bg-light);
+  --switch-track-bg: var(--switch-track-bg-light);
+  --switch-thumb-bg: var(--switch-thumb-bg-light);
+  --auth-bg: var(--auth-bg-light);
+}
+
+/* Dark theme application */
+[data-theme="dark"] {
+  --bg-primary: var(--bg-dark);
+  --bg-secondary: var(--bg-dark-secondary);
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --divider-color: var(--divider-dark);
+  --card-border: var(--card-border-dark);
+  --input-bg: var(--input-bg-dark);
+  --input-border: var(--input-border-dark);
+  --input-border-hover: var(--input-border-hover-dark);
+  --button-hover-bg: var(--button-hover-bg-dark);
+  --settings-header-bg: var(--settings-header-bg-dark);
+  --settings-content-bg: var(--settings-content-bg-dark);
+  --switch-track-bg: var(--switch-track-bg-dark);
+  --switch-thumb-bg: var(--switch-thumb-bg-dark);
+  --auth-bg: var(--auth-bg-dark);
+}
+
+/* Global styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+/* Common utility classes */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.divider {
+  background-color: var(--divider-color);
+  height: 1px;
+  width: 100%;
+  margin: 16px 0;
+}
+
+/* Reset styles for common elements */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  margin-top: 0;
+}
+
+/* MUI override base styles */
+.MuiPaper-root {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.MuiButton-root {
+  text-transform: none;
+}
+
+.MuiDrawer-paper {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-right: 1px solid var(--divider-color);
+}
+
+.MuiDivider-root {
+  background-color: var(--divider-color);
+}
+
+.MuiTypography-root {
+  color: var(--text-primary);
+}
+
+.MuiTypography-colorTextSecondary {
+  color: var(--text-secondary);
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: var(--input-border);
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: var(--input-border-hover);
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary-color);
+}
+
+.MuiInputBase-input {
+  color: var(--text-primary);
+}
+
+.MuiInputLabel-root {
+  color: var(--text-secondary);
+}
+
+.MuiTextField-root {
+  background-color: var(--input-bg);
+  border-radius: 8px;
+}
+
+/* Main content styles */
+main {
+  background-color: var(--background-color);
+}
+
+/* Completely disable all ripple effects */
+.MuiTouchRipple-root {
+  display: none !important;
+}
+
+/* Global style to remove focus outline */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.MuiButtonBase-root:focus,
+.MuiButtonBase-root:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Main layout structure */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Override for MUI components to center in layout */
+.MuiContainer-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 

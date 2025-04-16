@@ -1,0 +1,191 @@
+/* [project]/src/styles/transactions.css [app-client] (css) */
+.transactions-container {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 0 0%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px #00000014;
+}
+
+[data-theme="dark"] .transactions-container {
+  background-color: #1e1e2d;
+  box-shadow: 0 4px 15px #0003;
+}
+
+.transactions-table {
+  table-layout: fixed;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.transactions-table .MuiTableCell-head {
+  background-color: #00000008;
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .transactions-table .MuiTableCell-head {
+  color: #ddd;
+  background-color: #ffffff0d;
+}
+
+.transactions-table .MuiTableCell-body {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 12px 16px;
+  overflow: hidden;
+}
+
+.transaction-type-chip {
+  justify-content: center;
+  min-width: 80px;
+  font-weight: 500 !important;
+}
+
+.transaction-type-chip.income {
+  color: #2e7d32 !important;
+  background-color: #2e7d321a !important;
+}
+
+.transaction-type-chip.expense {
+  color: #d32f2f !important;
+  background-color: #d32f2f1a !important;
+}
+
+.transaction-type-chip.transfer {
+  color: #1976d2 !important;
+  background-color: #1976d21a !important;
+}
+
+.transaction-amount {
+  text-align: right !important;
+  font-weight: 600 !important;
+}
+
+.transaction-amount.income {
+  color: #2e7d32 !important;
+}
+
+.transaction-amount.expense {
+  color: #d32f2f !important;
+}
+
+.transaction-amount.transfer {
+  color: #1976d2 !important;
+}
+
+.pagination-container {
+  background-color: #00000005;
+  border-top: 1px solid #00000014;
+  justify-content: center;
+  padding: 16px;
+  display: flex;
+}
+
+[data-theme="dark"] .pagination-container {
+  background-color: #ffffff08;
+  border-top: 1px solid #ffffff14;
+}
+
+.category-indicator {
+  align-items: center;
+  gap: 8px;
+  display: flex;
+}
+
+.category-color-dot {
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+}
+
+.page-title-container {
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1000px;
+  margin-bottom: 24px;
+  margin-left: 8%;
+  margin-right: auto;
+  display: flex;
+}
+
+.transaction-filters {
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 90%;
+  max-width: 1000px;
+  margin-bottom: 24px;
+  margin-left: 8%;
+  margin-right: auto;
+  display: flex;
+}
+
+@media (width <= 1024px) {
+  .transactions-container, .page-title-container, .transaction-filters {
+    width: 92%;
+    margin-left: 6%;
+  }
+}
+
+@media (width <= 768px) {
+  .transactions-container, .page-title-container, .transaction-filters {
+    width: 95%;
+    margin-left: 3%;
+  }
+
+  .transactions-table .MuiTableCell-head, .transactions-table .MuiTableCell-body {
+    padding: 8px 12px;
+  }
+
+  .transaction-filters {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (width <= 480px) {
+  .transactions-container, .page-title-container, .transaction-filters {
+    width: 98%;
+    margin-left: 1%;
+  }
+
+  .transactions-table .MuiTableCell-head, .transactions-table .MuiTableCell-body {
+    padding: 6px 8px;
+    font-size: .8rem;
+  }
+}
+
+.content-container {
+  align-items: flex-start;
+}
+
+.transactions-table .date-cell {
+  width: 10%;
+}
+
+.transactions-table .description-cell {
+  width: 20%;
+}
+
+.transactions-table .category-cell, .transactions-table .account-cell {
+  width: 15%;
+}
+
+.transactions-table .amount-cell {
+  width: 12%;
+}
+
+.transactions-table .type-cell {
+  width: 10%;
+}
+
+.transactions-table .actions-cell {
+  width: 8%;
+}
+
+
+/*# sourceMappingURL=src_styles_transactions_b1e3ec6c.css.map*/

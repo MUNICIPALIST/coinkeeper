@@ -1,0 +1,144 @@
+/* [project]/src/styles/theme-dark.css [app-client] (css) */
+:root[data-theme="dark"] {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10;
+  --background-end-rgb: 0, 0, 0;
+  --primary-color: #90caf9;
+  --secondary-color: #f48fb1;
+  --background-color: #121212;
+  --background-alt-color: #121212;
+  --paper-color: #1e1e1e;
+  --text-primary: #ffffffde;
+  --text-secondary: #fff9;
+  --divider-color: #ffffff1f;
+  --error-color: #f44336;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --card-shadow: 0 2px 8px #0000004d;
+  --card-border: 1px solid #ffffff14;
+  --primary-color-rgb: 144, 202, 249;
+  --sidebar-bg: #1c1c1c;
+  --sidebar-item-hover: #ffffff14;
+  --sidebar-item-active: #6464641f;
+  --sidebar-text: #ffffffde;
+  --sidebar-icon: #aaa;
+  --sidebar-border: #ffffff14;
+}
+
+[data-theme="dark"] body {
+  color: var(--text-primary);
+  background: var(--background-color);
+}
+
+[data-theme="dark"] main {
+  background-color: var(--background-color);
+}
+
+[data-theme="dark"] .MuiCard-root, [data-theme="dark"] .MuiPaper-root, [data-theme="dark"] .MuiContainer-root, [data-theme="dark"] .MuiDrawer-paper {
+  background-color: var(--paper-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .sidebar {
+  background-color: var(--sidebar-bg) !important;
+}
+
+[data-theme="dark"] .MuiDrawer-paper {
+  background-color: var(--sidebar-bg) !important;
+  border-right: 1px solid var(--sidebar-border) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root {
+  color: var(--sidebar-text);
+  background-color: #0000;
+  border-radius: 8px;
+  margin: 4px 8px;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:hover {
+  background-color: var(--sidebar-item-hover) !important;
+  color: #ccc !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root.active {
+  font-weight: 500;
+  background-color: var(--sidebar-item-active) !important;
+  color: #ccc !important;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemIcon-root {
+  min-width: 40px;
+  color: var(--sidebar-icon) !important;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemText-primary {
+  font-weight: 500;
+  color: var(--sidebar-text) !important;
+}
+
+[data-theme="dark"] .sidebar .MuiToolbar-root .MuiTypography-root {
+  letter-spacing: .5px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ccc !important;
+  background: none !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child {
+  border-top: 1px solid var(--sidebar-border);
+  border-radius: 0;
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #ef5350 !important;
+}
+
+[data-theme="dark"] .sidebar .MuiListItemButton-root:last-child:hover {
+  box-shadow: none !important;
+  background-color: #ffffff0d !important;
+  transform: none !important;
+}
+
+[data-theme="dark"] .sidebar :before, [data-theme="dark"] .sidebar :after, [data-theme="dark"] .MuiDrawer-paper :before, [data-theme="dark"] .MuiDrawer-paper :after {
+  content: none !important;
+  opacity: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  display: none !important;
+}
+
+[data-theme="dark"] .sidebar *, [data-theme="dark"] .MuiDrawer-paper * {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+[data-theme="dark"] .dashboard-layout, [data-theme="dark"] .main-content, [data-theme="dark"] .content-wrapper {
+  background-color: var(--background-color);
+}
+
+[data-theme="dark"] .MuiButtonBase-root:hover {
+  background-color: #ffffff14 !important;
+}
+
+[data-theme="dark"] .MuiTouchRipple-root {
+  display: none !important;
+}
+
+/*# sourceMappingURL=src_styles_theme-dark_css_f9ee138c._.single.css.map*/

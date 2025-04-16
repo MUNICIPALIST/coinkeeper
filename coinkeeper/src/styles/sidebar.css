@@ -1,0 +1,114 @@
+/* Sidebar styles */
+.sidebar {
+  transition: all 0.3s ease;
+}
+
+.sidebar .MuiDrawer-paper {
+  border-right: 1px solid var(--sidebar-border);
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  transition: all 0.3s ease;
+  /* Remove outline */
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.sidebar * {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Sidebar list items */
+.sidebar .MuiListItemButton-root {
+  position: relative;
+  outline: none !important;
+  margin: 4px 8px;
+  border-radius: 8px;
+  color: var(--sidebar-text);
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.sidebar .MuiListItemButton-root:hover {
+  background-color: var(--sidebar-item-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .MuiListItemIcon-root {
+  color: var(--sidebar-icon);
+  min-width: 40px;
+}
+
+/* Active menu item indicator */
+.sidebar .MuiListItemButton-root.active {
+  background-color: var(--sidebar-item-active);
+  transform: translateY(-2px);
+}
+
+.sidebar .MuiListItemButton-root.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, var(--primary-color), var(--primary-color));
+}
+
+/* Logo area styling */
+.sidebar .MuiToolbar-root {
+  display: flex;
+  justify-content: center;
+  padding: 20px 16px;
+}
+
+.sidebar .MuiToolbar-root .MuiTypography-root {
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-color));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* Override styles for logout button */
+.sidebar .MuiListItemButton-root:last-child {
+  margin-top: 16px;
+  border-top: 1px solid var(--sidebar-border);
+  border-radius: 0;
+  padding-top: 16px;
+}
+
+/* FORCE LIGHT THEME STYLES - HIGHEST PRIORITY */
+html[data-theme="light"] .sidebar,
+.light-theme.sidebar,
+.sidebar.light-theme,
+.light-mode .sidebar {
+  background-color: var(--sidebar-bg) !important;
+}
+
+html[data-theme="light"] .MuiDrawer-paper,
+.light-theme .MuiDrawer-paper,
+.light-mode .MuiDrawer-paper {
+  background-color: var(--sidebar-bg) !important;
+  border-right: 1px solid var(--sidebar-border) !important;
+}
+
+/* Fix for list items in light theme */
+html[data-theme="light"] .sidebar .MuiListItemButton-root,
+html:not([data-theme="dark"]) .sidebar .MuiListItemButton-root {
+  color: var(--sidebar-text);
+  background-color: transparent;
+}
+
+/* Remove any blue background from light theme sidebar */
+html:not([data-theme="dark"]) .sidebar,
+html:not([data-theme="dark"]) .sidebar .MuiDrawer-paper,
+.sidebar.light-theme,
+.light-theme .sidebar {
+  background-color: var(--sidebar-bg) !important;
+  background-image: none !important;
+} 

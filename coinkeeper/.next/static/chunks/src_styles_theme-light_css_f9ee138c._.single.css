@@ -1,0 +1,130 @@
+/* [project]/src/styles/theme-light.css [app-client] (css) */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --primary-color: #1976d2;
+  --secondary-color: #dc004e;
+  --background-color: #fff;
+  --background-alt-color: #f7f7f7;
+  --paper-color: #fff;
+  --text-primary: #000000de;
+  --text-secondary: #0009;
+  --divider-color: #0000001f;
+  --error-color: #f44336;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --sidebar-bg: #f8f9fa;
+  --sidebar-item-hover: #0000000a;
+  --sidebar-item-active: #6464641f;
+  --sidebar-text: #333;
+  --sidebar-icon: #555;
+  --sidebar-border: #00000014;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--background-color);
+}
+
+main {
+  background-color: var(--background-color);
+}
+
+.MuiCard-root, .MuiPaper-root, .MuiContainer-root, .MuiDrawer-paper {
+  background-color: var(--paper-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.sidebar {
+  background-color: var(--sidebar-bg) !important;
+}
+
+.MuiDrawer-paper {
+  background-color: var(--sidebar-bg) !important;
+  border-right: 1px solid var(--sidebar-border) !important;
+  box-shadow: none !important;
+}
+
+.sidebar .MuiListItemButton-root {
+  color: var(--sidebar-text);
+  background-color: #0000;
+  border-radius: 8px;
+  margin: 4px 8px;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.sidebar .MuiListItemButton-root:hover {
+  background-color: var(--sidebar-item-hover) !important;
+  color: #333 !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.sidebar .MuiListItemButton-root.active {
+  font-weight: 500;
+  background-color: var(--sidebar-item-active) !important;
+  color: #555 !important;
+}
+
+.sidebar .MuiListItemIcon-root {
+  min-width: 40px;
+  color: var(--sidebar-icon) !important;
+}
+
+.sidebar .MuiListItemText-primary {
+  font-weight: 500;
+  color: var(--sidebar-text) !important;
+}
+
+.sidebar .MuiToolbar-root .MuiTypography-root {
+  letter-spacing: .5px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #555 !important;
+  background: none !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.sidebar .MuiListItemButton-root:last-child {
+  border-top: 1px solid var(--sidebar-border);
+  border-radius: 0;
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.sidebar .MuiListItemButton-root:last-child .MuiListItemIcon-root {
+  color: #d32f2f !important;
+}
+
+.sidebar .MuiListItemButton-root:last-child:hover {
+  box-shadow: none !important;
+  background-color: #0000000a !important;
+  transform: none !important;
+}
+
+.sidebar *, .MuiDrawer-paper * {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.sidebar :focus, .sidebar :focus-visible, .sidebar :focus-within, .sidebar :active, .MuiDrawer-paper :focus, .MuiDrawer-paper :focus-visible, .MuiDrawer-paper :focus-within, .MuiDrawer-paper :active {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.sidebar .MuiTouchRipple-root, .MuiDrawer-paper .MuiTouchRipple-root {
+  display: none !important;
+}
+
+/*# sourceMappingURL=src_styles_theme-light_css_f9ee138c._.single.css.map*/
